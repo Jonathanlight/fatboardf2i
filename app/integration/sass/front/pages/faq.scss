@@ -1,0 +1,39 @@
+/* ---- Faq ---- */
+// List
+.list-faq {
+  counter-reset: faq-counter;
+  .faq-block {
+    border-top: solid 2px $grey-80; border-bottom: solid 2px $grey-80; margin-top: rem(-2px);
+    .faq-link { display: block; padding: rem(35px) rem(100px); text-decoration: none; position: relative;
+      @include max(xs){ padding: rem(15px) rem(20px);}
+      &.active {
+        .btn {
+          background-color: transparent; border-color: $secondary; color: $secondary; box-shadow: none;
+          i { transform: rotate(-180deg);}
+        }
+      }
+      &:before {
+        content: counter(faq-counter, decimal-leading-zero);
+        counter-increment: faq-counter; display: block; font-size: rem(22px); font-weight: 700; letter-spacing: 0.6px; color: $grey-80; position: absolute; left: 35px; top: 50%; transform: translateY(-50%);
+        @include max(xs){ display: block; position: static; transform: none;}
+
+      }
+      .btn {
+        width: 34px; height: 34px; min-height: 34px; padding: 0;  line-height: 32px; border-radius:50%; position: absolute; right: 40px; top: 50%; transform: translateY(-50%); font-size: rem(16px); box-shadow: none;
+        @include max(xs){ transform: none; top: 23px; right: 20px; width: 25px; height: 25px; min-height: 25px; line-height: 24px;}
+
+        i { transition: 0.3s;}
+        &.active {
+          background-color: transparent; border-color: $secondary; color: $secondary; box-shadow: none;
+        }
+      }
+    }
+    .faq-title {  font-size: rem(14px); font-weight: normal; line-height: 1.71; letter-spacing: 0.4px; margin-bottom: 0;
+      &:after { display: none;}
+    }
+    .faq-text { padding: rem(0) rem(100px) rem(35px);  font-size: rem(12px); line-height: 1.83; display: none;
+      @include max(xs){ padding: rem(0) rem(20px) rem(15px);}
+
+    }
+  }
+}

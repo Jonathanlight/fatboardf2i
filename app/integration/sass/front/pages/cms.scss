@@ -1,0 +1,155 @@
+/* ---- CMS ---- */
+.page-default {
+  &.page-cms {
+    .search-wrap { display: block;
+      .search-section {
+        @include max(sm){ height: 100%; background: $white !important; padding: 0;}
+        .search-title { text-transform: uppercase;
+          @include max(sm){ padding-top: rem(20px); margin-bottom: rem(20px);}
+          @include max(xs){ font-size: rem(16px);}
+        }
+      }
+    }
+    .search-icon {
+      @include max(sm){ display: none;}
+    }
+  }
+}
+
+.cms-wrap {
+  padding: 0; font-size: rem(14px); color: $grey-60; line-height: 1.83;
+  @include max(xs){ font-size: rem(12px);}
+
+  // Title
+  h1 { color: $text-color; font-size: rem(24px); margin-bottom: rem(25px);
+    &:after { content: ''; width: 30px; height: 4px; display: block; background: $secondary; margin-top: rem(15px);}
+    @include max(xs){ font-size: rem(20px);}
+  }
+  h2 {
+    color: $text-color; font-size: rem(20px); margin-bottom: rem(20px);
+    @include max(xs){ font-size: rem(18px);}
+    &.faq-title {
+      margin-bottom: rem(40px); line-height: 1.6; letter-spacing: 1px;
+    }
+
+    &:after { content: ''; width: 30px; height: 4px; display: block; background: $secondary; margin-top: rem(15px);}
+  }
+  h3 { color: $text-color; font-size: rem(18px); margin-bottom: rem(15px);
+    @include max(xs){ font-size: rem(16px);}
+  }
+  h4 { color: $text-color; font-size: rem(16px); margin-bottom: rem(15px);
+    @include max(xs){ font-size: rem(14px);}
+  }
+  h5 { color: $text-color; font-size: rem(14px); margin-bottom: rem(10px);}
+  h6 { color: $text-color; font-size: rem(14px); margin-bottom: rem(10px);}
+
+  a { color: $secondary;}
+
+  strong { color: $text-color;}
+
+  // Paragraphe
+  p {
+    font-size: rem(14px);
+    @include max(xs){ font-size: rem(12px);}
+  }
+
+  // Citation
+  blockquote {
+    text-align: center; font-size: rem(30px); color: $text-color; max-width: 600px; width: 100%; margin: 0 auto rem(60px); position: relative;
+    @include max(xs){ font-size: rem(20px); margin-bottom: rem(40px);}
+    &:before {
+      content: '“'; color: $nude-20; font-size: rem(240px); display: block; position: absolute; left: 50%; transform: translateX(-50%); z-index: -1; top: -31px; line-height: 1;
+    }
+  }
+
+
+  // Img
+  img { border-radius: 6px;}
+
+  // Block
+  .cms-block {
+    + .cms-block { margin-top: rem(40px);}
+  }
+  .cms-column-block {
+    .row{
+      [class*="col-"] { margin-bottom: rem(40px);
+        @include max(xs){ margin-bottom: rem(20px);}
+
+      }
+    }
+    .row-img {
+      $gutter: 20px;
+      margin-left: -$gutter; margin-right: -$gutter;
+      [class*="col-"]{ padding-left: $gutter; padding-right: $gutter; }
+    }
+  }
+
+  // List
+  ul {
+    @extend .list-unstyled;
+    li {
+      &:before { content: ''; width: 5px; height: 5px; background-color: $secondary; display: block; border-radius: 50%; position: absolute; left: 20px; top: 11px;
+        @include max(xs){left: 5px; top: 9px;}
+
+      }
+      position: relative; padding-left: rem(35px);
+      + li { margin-top: rem(7px);}
+      @include max(xs){ padding-left: rem(20px);}
+
+    }
+    &.cms-nav {
+      li {
+        &.active { a { font-weight: 800; position: relative; &:after { display: block; } } }
+        &:before { display: none;}
+      }
+    }
+    &.list-aside-contact { li { color: $text-color;&:before { display: none;}} }
+  }
+
+
+  // Table
+  table {
+    @extend .table;
+    @extend .table-bordered;
+    border: 1px solid $grey-140 !important; color: $text-color; font-size: rem(12px);
+    td, th { border-color: $grey-140 !important;}
+    tbody {
+      tr {
+        &:nth-child(odd){ background: $grey-20;}
+      }
+    }
+  }
+}
+
+// Nav
+.cms-nav {
+  border-radius: 6px; background-color: $white; box-shadow: 0 0 30px 0 $nude-30; padding: rem(5px) rem(20px) !important; margin-bottom: rem(30px);
+  @include max(sm){ display: none;}
+
+  li {
+    padding: 0 !important;
+    &:before { content: ' '; display: none !important;}
+    + li { margin-top: 0 !important; border-top: 1px solid $grey-80;}
+    a {
+      font-size: rem(14px); font-weight: 500; line-height: 1.5; letter-spacing: 0.6px; padding: rem(20px) rem(40px) !important;
+      color: $text-color; display: block;
+      &:after {
+        content: ''; width: 4px; height: 20px;  display: none; background-color: $secondary;  position: absolute; left: 5px; top: 50%; transform: translateY(-50%);
+      }
+      &:hover { color: $secondary; text-decoration: none}
+      &:focus { text-decoration: none}
+    }
+  }
+}
+
+// Contact
+.form-contact {
+  $gutter: 20px;
+  .row { margin-left: -$gutter; margin-right: -$gutter; }
+  [class*="col-"]{ padding-left: $gutter; padding-right: $gutter; }
+
+  .actions-block {
+    @extend .clearfix;
+    .btn { min-width: 150px; float: right;}
+  }
+}

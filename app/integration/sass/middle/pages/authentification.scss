@@ -1,0 +1,29 @@
+/* ---- Authentification ---- */
+.authentification-wrap {
+  min-height: 100vh; @include bgc(center, center, $nude); background-image: url('../../img/icons/icon-auth-bg.jpg');   display: flex; align-items: center; justify-content: center; padding: rem(20px); overflow: hidden;
+}
+
+.authentification-form {
+  max-width: 380px; width: 100%; border-radius: 6px; background-color: $white; text-align: center; box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.12); padding: rem(60px) rem(40px); @include bgc(center, center, $white); background-image: url('../../img/icons/icon-auth-form-bg.svg');
+  @include max(xs){ padding: 35px 20px;}
+  &.login-form { background: $white; position: relative; overflow: hidden;
+    &:before { content: ''; width: 100px; height: 100px; @include bgc(center, center, $white); display: block; position: absolute; left: 0; top: 0; background-image: url('../../img/icons/admin/icon-admin.svg');}
+  }
+
+  .authentification-logo { width: 200px; margin-bottom: rem(15px); position: relative; z-index: 2;}
+
+  .authentification-text { line-height: 1.57; font-size: rem(14px); margin-bottom: rem(30px);}
+
+  .alert-primary { font-size: rem(12px);}
+
+  .form-group { margin-bottom: rem(15px);}
+  .form-control { height: 50px;}
+
+  .form-mdp { display: none;}
+
+
+  .auth-actions { padding-top: rem(15px);
+    .btn { min-width: 160px; margin-bottom: rem(15px); min-height: 50px; padding: rem(10px) rem(15px); font-size: rem(11px);}
+    .link-auth { color: $secondary; font-size: rem(10px); font-weight: 600; text-decoration: underline; text-transform: uppercase;}
+  }
+}

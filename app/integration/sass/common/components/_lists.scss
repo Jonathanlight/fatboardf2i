@@ -1,0 +1,19 @@
+/* ---- Lists ---- */
+ol, ul {
+  padding-left: rem(18px);
+}
+
+// List default
+.list-default {
+  @extend .list-unstyled; text-align: left; margin-bottom: 0;
+  li {
+    &:before { content: ''; width: 5px; height: 5px; background-color: $secondary; display: block; border-radius: 50%; position: absolute; left: 20px; top: 7px;
+      @include max(xs){left: 5px; top: 9px;}
+
+    }
+    position: relative; padding-left: rem(35px);
+    + li { margin-top: rem(7px);}
+    @include max(xs){ padding-left: rem(20px);}
+
+  }
+}

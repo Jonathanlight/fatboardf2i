@@ -1,0 +1,52 @@
+/* ---- 404 ---- */
+.page-error {
+  .header-menu-section {
+    background-image: url('../../img/icons/error-head-bg.jpg');
+    padding: rem(35px); @include bgc(bottom, center, $nude);
+    @include max(sm){ padding: rem(16px) 0; }
+    .aggregation-block { font-size: 0;}
+  }
+}
+.error-wrap {
+  @extend .clearfix;
+  padding: rem(80px) 0; text-align: center; display: flex; align-items: center; justify-content: center;
+  @include max(md){ padding: rem(40px) 0;}
+
+  .container {
+    @include max(xs){ padding: 0;}
+  }
+
+  .error-block { position: relative;
+    @include max(xs){ background-image: url('../../img/icons/404-bg.svg'); @include bgc(center, center, transparent); padding: rem(30px) rem(20px);}
+    &:before {
+      content: ''; background-image: url('../../img/icons/404-bg.svg'); padding-bottom: 55%; display: block; background-size: contain; background-position: center; background-repeat: no-repeat;
+      @include max(xs){ display: none;}
+    }
+
+  }
+  .error-content {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    @include max(xs){ position: static; transform: none;}
+  }
+
+  .error-img {
+    max-width: 410px; width: 100%; margin-bottom: rem(40px);
+    @include max(sm){ max-width: 280px;}
+    @include max(xs){ max-width: 200px; margin-bottom: rem(20px);}
+  }
+  .error-title {
+    font-size: rem(40px); margin-bottom: rem(20px);
+    @include max(sm){ font-size: rem(30px);}
+    @include max(xs){ font-size: rem(24px);}
+  }
+  .error-text {
+    font-size: rem(32px); font-weight: 300; line-height: 1.31; letter-spacing: 0.2px; margin-bottom: rem(20px); max-width: 540px;
+    @include max(sm){ font-size: rem(24px);}
+    @include max(xs){ font-size: rem(18px);}
+  }
+  .error-emo-img {
+    &:after {
+      content: ''; width: 30px; height: 3px; background: $secondary; display: block; margin: rem(30px) auto 0;
+    }
+  }
+}

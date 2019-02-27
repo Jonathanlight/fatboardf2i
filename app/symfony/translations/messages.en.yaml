@@ -1,0 +1,46 @@
+info:
+    lotUser:
+        code: 'Code du ticket'
+        reference: 'Référence ticket'
+    gains: ''
+    game: ''
+    profil: 'Modifier votre profil'
+    admin: ''
+menu:
+    mecanicien:
+        dashboard: 'Dashboard'
+        account: 'Account'
+        logout: 'logout'
+    user:
+        dashboard: 'Dashboard'
+        profil: 'Profil'
+        stat: 'Statistic'
+        gains: 'Gains'
+        newPassword: 'Edit password'
+        logout: 'logout'
+form:
+    action:
+        edit: 'Modification'
+        submit: 'Valider'
+        login: 'Connexion'
+        nom: 'Nom'
+        prenom: 'Prénom'
+        email: 'Email'
+        password: 'Mot de passe'
+        newPassword: 'Confirmation du mot de passe'
+        invalid_message: 'Les champs de mot de passe doivent correspondre.'
+
+    user:
+        lastname: 'Nom'
+        firstname: 'Prénom'
+        username: 'Username'
+        login: 'Connexion'
+        password: 'Mot de passe'
+        newPassword: 'Confirmer votre mot de passe'
+        repeatPassword: 'Confirmer votre mot de passe'
+        email: 'Votre Email'
+message:
+    flash:
+        userCreate: 'Votre profil à été créer avec succès .'
+        userUpdate: 'Votre profil à été modifier avec succès .'
+        userDelete: 'Votre profil à été supprimer avec succès .'

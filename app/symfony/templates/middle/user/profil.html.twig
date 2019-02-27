@@ -1,0 +1,49 @@
+{% extends "middle/base.html.twig" %}
+
+{% block title %} {{ 'menu.user.profil'|trans }} {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <!--card stats start-->
+        <div id="card-stats">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 white-text">
+                        <div class="padding">
+                            <div class="col s7 m7 ">
+                                <i class="material-icons background-round mt-5">person</i>
+                            </div>
+                            <div class="col s5 m5 right-align">
+                                <h5 class="mb-0">{{ 'menu.user.profil'|trans }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m4"></div>
+            <div class="col s12 m4">
+                <div class="row">
+                    <h5>{{ 'info.profil'|trans }}</h5>
+                </div>
+                <div class="row">
+                    {{ form_start(form) }}
+                    <div class="input-field col s12">
+                        {{ form_row(form.lastname, {'attr': {'placeholder': ''} }) }}
+                        {{ form_errors(form.lastname) }}
+                    </div>
+                    <div class="input-field col s12">
+                        {{ form_row(form.firstname, {'attr': {'placeholder': ''} }) }}
+                        {{ form_errors(form.firstname) }}
+                    </div>
+                    <div class="input-field col s12">
+                        {{ form_row(form.submit) }}
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

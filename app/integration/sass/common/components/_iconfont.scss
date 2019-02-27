@@ -1,0 +1,170 @@
+@font-face {
+  font-family: "plus_de_points";
+  src: url('../../fonts/icons/plus_de_points.eot');
+  src: url('../../fonts/icons/plus_de_points.eot?#iefix') format('eot'),
+    url('../../fonts/icons/plus_de_points.woff2') format('woff2'),
+    url('../../fonts/icons/plus_de_points.woff') format('woff'),
+    url('../../fonts/icons/plus_de_points.ttf') format('truetype'),
+    url('../../fonts/icons/plus_de_points.svg#plus_de_points') format('svg');
+}
+
+@mixin icon-styles {
+  font-family: "plus_de_points";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+  text-decoration: none;
+  text-transform: none;
+}
+
+%icon {
+  @include icon-styles;
+}
+
+@function icon-char($filename) {
+  $char: "";
+
+  @if $filename == calendar {
+    $char: "\E001";
+  }
+  @if $filename == chair {
+    $char: "\E002";
+  }
+  @if $filename == check {
+    $char: "\E003";
+  }
+  @if $filename == close {
+    $char: "\E004";
+  }
+  @if $filename == d-arrow {
+    $char: "\E005";
+  }
+  @if $filename == file {
+    $char: "\E006";
+  }
+  @if $filename == filter-form {
+    $char: "\E007";
+  }
+  @if $filename == filter {
+    $char: "\E008";
+  }
+  @if $filename == kernix {
+    $char: "\E009";
+  }
+  @if $filename == label {
+    $char: "\E00A";
+  }
+  @if $filename == lock {
+    $char: "\E00B";
+  }
+  @if $filename == m-rem {
+    $char: "\E00C";
+  }
+  @if $filename == mail {
+    $char: "\E00D";
+  }
+  @if $filename == pause {
+    $char: "\E00E";
+  }
+  @if $filename == pen {
+    $char: "\E00F";
+  }
+  @if $filename == pin-alt {
+    $char: "\E010";
+  }
+  @if $filename == pin {
+    $char: "\E011";
+  }
+  @if $filename == power {
+    $char: "\E012";
+  }
+  @if $filename == search {
+    $char: "\E013";
+  }
+  @if $filename == time {
+    $char: "\E014";
+  }
+  @if $filename == trash {
+    $char: "\E015";
+  }
+
+  @return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+  &:#{$insert} {
+    @if $extend {
+      @extend %icon;
+    } @else {
+      @include icon-styles;
+    }
+    content: icon-char($filename);
+  }
+}
+
+.icon-calendar {
+  @include icon(calendar);
+}
+.icon-chair {
+  @include icon(chair);
+}
+.icon-check {
+  @include icon(check);
+}
+.icon-close {
+  @include icon(close);
+}
+.icon-d-arrow {
+  @include icon(d-arrow);
+}
+.icon-file {
+  @include icon(file);
+}
+.icon-filter-form {
+  @include icon(filter-form);
+}
+.icon-filter {
+  @include icon(filter);
+}
+.icon-kernix {
+  @include icon(kernix);
+}
+.icon-label {
+  @include icon(label);
+}
+.icon-lock {
+  @include icon(lock);
+}
+.icon-m-rem {
+  @include icon(m-rem);
+}
+.icon-mail {
+  @include icon(mail);
+}
+.icon-pause {
+  @include icon(pause);
+}
+.icon-pen {
+  @include icon(pen);
+}
+.icon-pin-alt {
+  @include icon(pin-alt);
+}
+.icon-pin {
+  @include icon(pin);
+}
+.icon-power {
+  @include icon(power);
+}
+.icon-search {
+  @include icon(search);
+}
+.icon-time {
+  @include icon(time);
+}
+.icon-trash {
+  @include icon(trash);
+}

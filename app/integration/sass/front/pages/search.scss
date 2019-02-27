@@ -1,0 +1,306 @@
+/* ---- Search ---- */
+.page-search {
+  .search-wrap {
+    @include max(sm){ display: none;}
+
+    .search-icon { width: 67%; top: calc(60% - 65px);}
+    .search-section {
+      height: 250px; padding-top: rem(135px);
+      .search-title { display: none;}
+    }
+  }
+
+  .contact-header-section {
+    @include max(sm){ background: $grey-20;}
+  }
+}
+
+// Search
+.search-title-block {
+  margin-bottom: rem(20px);
+  .search-title {
+    font-size: rem(20px); font-weight: bold; line-height: 1.6; letter-spacing: 1px; margin-bottom: 0;
+    @include max(sm){ margin-bottom: rem(10px); }
+    @include max(xs){ font-size: rem(18px); }
+  }
+
+  // Filter
+  .aside-block {
+    display: none; background: $white; border: 1px solid $grey-110; border-top: 0; width: 280px; margin: 0 auto; padding: rem(15px) rem(15px) 0;
+    @include min(md){ display: none !important;}
+    .aside-b-title { display: none;}
+    .form-control:not([multiple]) { height: 50px; }
+  }
+
+  // Sorts
+  .form-sorts { float: right; padding-top: rem(7px);
+    @include min(md){ display: block !important;}
+
+    @include max(sm){ display: none; float: none; background: $white; text-align: center; border: 1px solid $grey-110; border-top: 0; width: 280px; margin: 0 auto;}
+
+    .form-sorts-title { float: left; font-size: 11px; padding-top:0; margin-right: rem(18px);
+      @include max(sm){ display: none; }
+    }
+    .form-radio-alt { float: left;
+      @include max(sm){ display: inline-block; float: none; }
+    }
+    .form-radio { float: left;
+      @include max(sm){ display: inline-block; float: none; }
+
+      + .form-radio { margin-left: rem(15px);}
+    }
+  }
+
+  .list-form-search {
+    width: 280px; margin: 0 auto; @extend .clearfix; border: 1px solid $grey-110; display: none;
+    @include max(sm){ display: block;}
+
+    li {
+      float: left; width: 50%;  text-align: center;
+      &:first-child {
+        a { font-size: rem(10px);}
+      }
+      + li {
+        border-left: 1px solid $grey-110;
+      }
+      &:not(:last-child) { margin-right: 0;  }
+      a { color: $text-color; background: $white; display: block; font-size: rem(14px); height: 50px; line-height: 50px;
+        &:hover, &:focus { text-decoration: none;}
+        &.active { background: $secondary; color: $white;
+          i { color: $white;}
+        }
+        i { margin: 0 rem(10px); color: $secondary;
+          &.icon-filter { font-size: rem(10px);}
+        }
+      }
+    }
+  }
+}
+
+.search-all-block {
+  .search-block {
+    @extend .clearfix; position: relative; clear: both;
+    .search-content-all-block {
+      &:before {
+        content: ''; z-index: -1; background-image:url('../../img/icons/icon-shadow-top.svg'); width: 16px; height: 4px; background-size: contain; position: absolute; right: 227px; top: 0;
+        @include max(xs){
+          right: auto; top: auto; left: -7px; bottom: 140px; transform: rotate(-90deg);
+        }
+      }
+      &:after {
+        content: ''; z-index: -1; background-image:url('../../img/icons/icon-shadow-bottom.svg'); width: 16px; height: 4px; background-size: contain; position: absolute; right: 227px; top: 157px;
+        @include max(xs){
+          right: -7px; top: auto; bottom: 140px; transform: rotate(-90deg);
+        }
+      }
+    }
+
+
+    &.active {
+      .search-content-block {
+        @include min(sm){ border-radius: 6px 6px 0 0;}
+      }
+      .search-price-block {
+        border-radius: 6px 6px 0 0;
+      }
+    }
+    + .search-block { margin-top: rem(40px);
+      @include max(md){ margin-top: rem(25px);}
+      @include max(xs){ margin-top: rem(20px);}
+    }
+
+    .search-content-block {
+      border-radius: 6px; background-color: $white; float: left; width: calc(100% - 235px); min-height: 160px; @extend .clearfix;
+      @include max(xs){ display: flex; flex-direction: column-reverse; float: none; width: 100%;}
+
+      // Place
+      .search-place-block {
+        width: 100px; float: left; border-right: 1px solid $grey-80;
+        @include max(md){ width: 80px;}
+        @include max(xs){ display: block; float: none; width: 100%; border-right: 0; border-top: 1px solid $grey-80;}
+
+        .search-place-item {
+          text-align: center; height: 80px; padding: rem(20px) rem(10px) rem(10px); font-size: rem(12px); font-weight: 400; line-height: 1.2;
+          @include max(md){ font-size: rem(9px);}
+          @include max(xs){ display: block; float: left; width: 50%; padding: rem(10px); height: 100%; font-size: rem(12px);}
+          br {
+            @include max(xs){ display: none;}
+          }
+
+          i { font-size: rem(16px); margin-bottom: rem(3px); display: inline-block;}
+          + .search-place-item { border-top: 1px solid $grey-80; padding-top: rem(15px);
+            @include max(xs){ border-top: 0; border-left: 1px solid $grey-80; padding: rem(10px);}
+          }
+        }
+      }
+
+      // Address & Date
+      .search-address-date-block {
+        float: left; width: calc(100% - 100px); padding: rem(30px) rem(30px) rem(25px) rem(40px); @extend .clearfix;
+        @include max(md){ width: calc(100% - 80px);  padding: rem(20px) rem(20px);}
+        @include max(xs){ display: block; float: none; width: 100%;}
+
+        .search-address-block {
+          float: left; width: calc(100% - 130px); padding-right: rem(10px);
+          @include max(xs){ width: calc(100% - 60px); }
+
+          .search-address-title {
+            font-size: rem(18px); font-weight: 600; letter-spacing: 0.5px; margin-bottom: rem(3px);
+            @include max(md){font-size: rem(16px);}
+            @include max(xs){font-size: rem(14px);}
+          }
+          .search-address-text { font-size: rem(14px); line-height: 1.43; color: $grey-90; letter-spacing: 0.6px; margin-bottom: rem(15px);
+            @include max(md){font-size: rem(13px);}
+            @include max(xs){font-size: rem(12px);}
+          }
+
+          .link-detail {
+            color: $secondary; font-size: rem(13px); position: relative; display: inline-block;
+            @include max(xs){font-size: rem(12px);}
+
+            &:hover, &:focus { text-decoration: none;
+              color: $primary;
+              &:after { background: $primary;}
+            }
+            &:after {
+              content: ''; width: 100%; left: 0; height: 2px; background: $secondary;  display: block; position: absolute; top: calc(100% + 2px); transition: 0.3s;
+            }
+          }
+        }
+
+        .search-date-block {
+          float: right; width: 130px; position: relative;
+          @include max(xs){ width: 60px; }
+
+          &:before {
+            content: '';   width: 31px; height: 1px; background: $primary; display: block; position: absolute; z-index: 1; left:
+            50%; transform: translateX(-50%); top: 46px;
+            @include max(xs){ width: 1px; height: 20px; top: 54px; }
+
+          }
+
+          .search-date-item {
+            width: 60px; text-align: center; height: 100px; float: left; border-radius: 6px; font-size: rem(10px); box-shadow: 0 0 15px 0 rgba(47, 47, 124, 0.1); padding-top: rem(23px);
+            @include max(xs){ float: none; height: 100%; padding: rem(7px) rem(5px);}
+            .number { font-size: rem(18px); line-height: 1.1;
+              @include max(xs){ font-size: rem(14px);}
+            }
+
+            + .search-date-item { margin-left: rem(10px);
+              @include max(xs){ margin-top: rem(10px); margin-left: 0;}
+            }
+
+          }
+        }
+      }
+    }
+
+    .search-price-block {
+      border-radius: 6px; background-color: $white; float: left; width: 235px; padding: rem(30px) rem(10px) rem(25px); text-align: center; min-height: 160px; position: relative;
+      @include max(xs){ display: block; float: none; width: 100%; padding-top: rem(15px); min-height: 100%;}
+
+      &:before {
+        content: ''; display: block; position: absolute; left: -0.5px; width: 1px; top: 4px; bottom: 4px; background-image: url('../../img/icons/icon-lign.svg'); background-position: center;
+        @include max(xs){ background-image: url('../../img/icons/icon-lign-top.svg'); top: -1px; left: 4px; right: 4px; bottom: auto; height: 1px; width: auto;}
+      }
+
+      .search-promo-text { font-size: rem(9px); text-transform: uppercase; letter-spacing: 0.1px; position: absolute; right: 10px; left: 10px; top: 7px;}
+
+      .search-promo-percentage { width: 40px; height: 40px; background: $primary; line-height: 40px; border-radius: 50%; transform: rotate(20deg); color: $white;  font-size: rem(12px); font-weight: 700; position: absolute ; right: -10px; top: 30px;}
+
+      .search-promo-starting-price {
+        font-size: rem(14px); font-weight: 600; position: absolute; top: 25px; left: 50%; transform: translateX(-50%);
+        @include max(xs){ top: 22px; left: -50px; transform: none;}
+        &:before { content: ' '; background-image: url('../../img/icons/icon-stripe.svg'); width: 27px; height: 17px; background-size: contain; background-position: center center; background-repeat: no-repeat;  display: block;    position: absolute; top: 0; left: 50%; transform: translateX(-50%);}
+      }
+
+      .search-all-price {
+        @include max(xs){ position: relative; display: inline-block;}
+      }
+
+      .search-price {
+        font-size: rem(42px); font-weight: 600; color: 	$primary; letter-spacing: 1.3px;
+        sup { font-size: rem(14px);top: -18px; left: -5px;}
+      }
+      .btn { min-height: 40px; padding: rem(10px) rem(25px); min-width: 120px;}
+    }
+
+    .search-detail-block {
+      border-radius: 0 0 6px 6px; border-top: solid 1px $grey-80; background-color: $white; float: left; width: 100%; padding: rem(35px) rem(60px) rem(18px); @extend .clearfix; display: none;
+      @include max(sm){ padding: rem(20px) rem(30px);}
+      @include max(xs){ padding: rem(20px) rem(20px);}
+
+      // Map
+      .link-map {
+        width: 150px; height: 150px; @include bgc(center, center, transparent); background-image: url('../../img/icons/img-map.svg'); display: block; position: relative; float: left;
+        @include max(xs){ float: none; margin: 0 auto; width: 100px; height: 100px;}
+        &:hover, &:focus {
+          .btn { background-color: transparent; border-color: $secondary; color: $secondary; box-shadow: none;}
+        }
+        .btn { width: 40px; min-height: 40px; height: 40px; border-radius: 50%; padding: 0; line-height: 36px; font-size: rem(16px); position: absolute; right: 0; top: 0;}
+      }
+
+      // Info
+      .search-detail-info {
+        float: left; padding-left: rem(40px); width: calc(100% - 150px);
+        $gutter: 15px; padding-top: rem(10px);
+        @include max(xs){ float: none; width: 100%; padding-left: 0;}
+
+        .row { margin-left: -$gutter; margin-right: -$gutter; }
+        [class*="col-"]{ padding-left: $gutter; padding-right: $gutter; }
+        .search-detail-item {
+          @include max(xs){ margin-top: rem(10px);}
+          + .search-detail-item { margin-top: rem(10px);}
+
+          .search-detail-title {
+            font-size: rem(12px); font-weight: 600; letter-spacing: 0.6px; margin-bottom: rem(2px);
+          }
+          .search-detail-text {
+            font-size: rem(12px); color: $grey-90; line-height: 1.5; letter-spacing: 0.4px;
+          }
+          .list-equipement { margin-bottom: 0;
+            li {}
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Loader
+// Loader
+.loader-dots {
+  display: flex; align-items: center; justify-content: center; padding-top: rem(30px);
+}
+.loader-dot {
+  margin: 0 rem(3px); width: 10px; height: 10px; border-radius: 50%; background: $primary; transform: scale(0.5); animation: scale-dot 1.2s ease-out infinite;
+  &:nth-of-type(2) {
+    animation-delay: 0.2s;
+  }
+  &:nth-of-type(3) {
+    animation-delay: 0.3s;
+  }
+  &:nth-of-type(4) {
+    animation-delay: 0.4s;
+  }
+  &:nth-of-type(5) {
+    animation-delay: 0.5s;
+  }
+}
+
+@keyframes scale-dot {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  25% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(0.5);
+  }
+}

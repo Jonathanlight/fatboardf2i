@@ -1,0 +1,309 @@
+/* ---- Header ---- */
+.header-wrap {
+  @extend .clearfix; position: relative; z-index: 2;
+  @include max(sm){ display: flex; flex-direction: column-reverse; background: $nude;}
+}
+
+// Mobile
+.header-nav-mobile {
+  position: fixed; right: 0; width: 220px; top: 10vh; padding: 0 30px; z-index: 1; bottom: 10vh; overflow: auto;
+  @include min(md){ display: none;}
+
+  // Icon
+  .header-icon-car { margin-bottom: rem(30px);}
+
+  // Nav
+  .nav-mobile {
+     border-bottom: 1px solid rgba($white, .2); padding: rem(10px) 0;
+    li {
+      + li { margin-top: rem(10px);}
+      &.active {
+        a {
+          &:hover, &:focus { text-decoration: none; color: $white;}
+        }
+        span {
+          &:before { content: ''; width: 10px; height: 2px; background: $secondary; display: inline-block; vertical-align: middle; margin-right: rem(10px);}
+        }
+      }
+      a {
+        color: $white; font-weight: 600; font-size: rem(11px); display: block; padding: rem(10px) 0;
+        &:hover, &:focus { text-decoration: none; color: $secondary;}
+      }
+    }
+  }
+
+  // Num
+  .num-mobile-block { color: $white; text-transform: uppercase;
+    .num-text { font-size: rem(10px); margin-bottom: rem(5px); }
+    .num-number { font-size: rem(12px); font-weight: 700;}
+  }
+
+  // Search
+  .search-wrap { margin-top: 0;}
+  .search-section {
+    padding: rem(20px) 0; background: transparent !important; border-top: 1px solid rgba($white, .2); border-bottom: 1px solid rgba($white, .2); height: 100%;
+    .container { padding: 0;}
+    .search-icon { display: none;}
+
+    .search-block {
+      .search-title,
+      .btn-primary { display: none;}
+      .form-group { margin-bottom: 0;}
+      .form-control {
+        height: 40px; padding-left: rem(15px); padding-right: rem(20px); font-size: rem(11px); box-shadow: none; border: 0;
+        &:focus { box-shadow: none;}
+      }
+      .btn-localisation {
+        height: 39px; min-height: 39px; width: 40px; line-height: 37px; font-size: rem(12px); top: 0;
+        @include max(sm){ bottom: auto; right: 0; left: auto; border-radius: 0 30px 30px 0; border-right: 0; border-left: 1px solid $grey-50; padding: 0 5px 0 0; }
+      }
+      .tooltip-inner { background: $secondary;}
+      .bs-tooltip-top { .arrow { &:before { border-top-color: $secondary;}} }
+    }
+
+    .btn-next { display: none !important;}
+  }
+}
+
+
+// Contact
+.contact-header-section {
+  background: $primary; color: $white; @extend .clearfix; padding: rem(7px) 0; position: relative; z-index: 1;
+  @include max(sm){ background: transparent; color: $primary; padding: rem(6px) 0; height: 28px; background: $white;}
+
+  .contact-block { float: right; font-size: rem(12px); text-transform: uppercase; font-weight: 300;
+    @include max(sm){ font-size: rem(11px);}
+    strong { font-weight: 700;}
+  }
+}
+
+// Menu
+.header-menu-section {
+  padding-top: rem(35px); @extend .clearfix;
+  @include max(sm){ padding: rem(16px) 0; border-bottom: 1px solid rgba($primary,0.2); background-image: url('../../img/icons/error-head-xs-bg.jpg'); background-position: bottom center; background-repeat: no-repeat; background-size: cover;}
+
+  // Logo
+  .header-logo { float: left; max-width: 240px; width: 100%; display: block;
+    @include max(sm){ max-width: 130px;}
+  }
+
+  // Nav
+  .header-nav {
+    float: right; margin: 0;
+    @include max(sm){ display: none;}
+
+    li { vertical-align: top;
+      &:not(:last-child) {
+        margin-right: rem(35px); padding-top: rem(3px);
+        @include max(md){ margin-right: rem(25px);}
+      }
+      a { color: $text-color; font-size: 13px; position: relative; display: block;
+        &:hover, &:focus { color: $text-color;  text-decoration: none;
+          &:after { opacity: 1; transform: translateX(-50%); left: 50%; }
+          span {
+            &:before {
+              left: 100%; width: 70%;
+            }
+          }
+        }
+        span { display: block; position: relative; overflow: hidden;
+          &:before {
+            content: ''; position: absolute; left: -20%; top: 0; background: $secondary; height: 100%; width: 5%; z-index: -1; transition: .4s .02s ease-in all;
+          }
+        }
+        &:after {
+          content: ''; width: 40px; height: 3px; background: $secondary; display: block; position: absolute; left: 0;  top: calc(100% + 15px); opacity: 0; transition: 0.3s;
+        }
+      }
+      &.active {
+        a { font-weight: 600;
+          span {
+            &:before {display: none;}
+          }
+          &:after {
+            opacity: 1; left: 50%;  transform: translateX(-50%);
+          }
+        }
+      }
+    }
+  }
+
+  // Agg
+  .aggregation-block {
+    background: $white; width: 80px; padding: rem(3px); font-size: rem(8px); text-align: center; line-height: 1.4; margin-top: rem(-5px);
+    &.ag-xs-block {
+      display: none; float: right; width: 45px; padding: rem(1.8px); margin-right: rem(30px);
+      @include max(sm){ display: block;}
+    }
+  }
+}
+
+// Burger
+.btn-menu-mobile { position: absolute; width: 30px; height: 40px; display: block; cursor: pointer; background: transparent; display: block; float: right; right: 3px; top: 11px; display: none; z-index: 4;
+  @include max(sm){ display: block;}
+}
+.btn-menu-mobile:before { content: ' '; position: absolute; top: 35%; margin-top: -2px; width: 16px; height: 3px; border-radius: 0; background: $text-color; display: block; }
+.btn-menu-mobile.active:before { content: ' '; position: absolute; top: 35%; margin-top: -2px; width: 16px; height: 3px; border-radius: 0; background: $text-color; display: block; }
+.btn-menu-mobile:before {
+  -webkit-animation: animationOneReverse 1s ease forwards;
+  animation: animationOneReverse 1s ease forwards;
+}
+
+@-webkit-keyframes animationOneReverse {
+  0% { -webkit-transform: rotate(315deg); }
+  25% { -webkit-transform: rotate(360deg); }
+  50%, 100% { -webkit-transform: rotate(0deg); }
+}
+@keyframes animationOneReverse {
+  0% { transform: rotate(315deg); }
+  25% { transform: rotate(360deg); }
+  50%, 100% { transform: rotate(0deg); }
+}
+
+.btn-menu-mobile.active:before {
+  -webkit-animation: animationOne 1s ease forwards;
+  animation: animationOne 1s ease forwards;
+}
+
+@-webkit-keyframes animationOne {
+  0%, 50% { -webkit-transform: rotate(0deg); }
+  75% { -webkit-transform: rotate(360deg); }
+  100% { -webkit-transform: rotate(315deg); }
+}
+@keyframes animationOne {
+  0%, 50% { transform: rotate(0deg); }
+  75% { transform: rotate(360deg); }
+  100% { transform: rotate(315deg); }
+}
+
+.btn-menu-mobile:after {
+  content: ' ';
+  position: absolute;
+  top: 35%;
+  margin-top: -2px;
+  width: 16px;
+  height: 2px;
+  border-radius: 0;
+  background: $text-color;
+}
+
+.btn-menu-mobile.active:after {
+  content: ' ';
+  position: absolute;
+  top: 35%;
+  margin-top: -2px;
+  width: 16px;
+  height: 3px;
+  border-radius: 0;
+  background: $text-color;
+}
+.btn-menu-mobile:after {
+  -webkit-animation: animationTwoReverse 1s ease forwards;
+  animation: animationTwoReverse 1s ease forwards;
+}
+
+@-webkit-keyframes animationTwoReverse {
+  0% { -webkit-transform: rotate(405deg); }
+  25% { -webkit-transform: rotate(450deg); }
+  50%, 100% { -webkit-transform: rotate(0deg); }
+}
+@keyframes animationTwoReverse {
+  0% { transform: rotate(405deg); }
+  25% { transform: rotate(450deg); }
+  50%, 100% { transform: rotate(0deg); }
+}
+
+.btn-menu-mobile.active:after {
+  -webkit-animation: animationTwo 1s ease forwards;
+  animation: animationTwo 1s ease forwards;
+}
+
+@-webkit-keyframes animationTwo {
+  0%, 50% { -webkit-transform: rotate(0deg); }
+  75% { -webkit-transform: rotate(450deg); }
+  100% { -webkit-transform: rotate(405deg); }
+}
+@keyframes animationTwo {
+  0%, 50% { transform: rotate(0deg); }
+  75% { transform: rotate(450deg); }
+  100% { transform: rotate(405deg); }
+}
+/* Burger Icon */
+.btn-menu-mobile .burger:before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  width: 16px;
+  height: 3px;
+  border-radius: 0;
+  background: $text-color;
+  -webkit-animation: animationBurgerTopReverse 1s ease forwards;
+  animation: animationBurgerTopReverse 1s ease forwards;
+}
+
+@-webkit-keyframes animationBurgerTopReverse {
+  0%, 50% { -webkit-transform: translateY(12px); opacity: 0; }
+  51% { -webkit-transform: translateY(12px); opacity: 1; }
+  100% { -webkit-transform: translateY(0px); opacity: 1; }
+}
+@keyframes animationBurgerTopReverse {
+  0%, 50% { transform: translateY(12px); opacity: 0; }
+  51% { transform: translateY(12px); opacity: 1; }
+  100% { transform: translateY(0px); opacity: 1; }
+}
+
+.btn-menu-mobile.active .burger:before {
+  -webkit-animation: animationBurgerTop 1s ease forwards;
+  animation: animationBurgerTop 1s ease forwards;
+}
+
+@-webkit-keyframes animationBurgerTop {
+  0% { -webkit-transform: translateY(0px); opacity: 1; }
+  50% { -webkit-transform: translateY(12px); opacity: 1; }
+  51%, 100% { -webkit-transform: translateY(12px); opacity: 0; }
+}
+@keyframes animationBurgerTop {
+  0% { transform: translateY(0px); opacity: 1; }
+  50% { transform: translateY(12px); opacity: 1; }
+  51%, 100% { transform: translateY(12px); opacity: 0; }
+}
+
+.btn-menu-mobile .burger:after {
+  content: ' ';
+  position: absolute;
+  bottom: 6px;
+  width: 12px;
+  height: 3px;
+  top: 47%;
+  border-radius: 0;
+  background: $text-color;
+  -webkit-animation: animationBurgerBottomReverse 1s ease forwards;
+  animation: animationBurgerBottomReverse 1s ease forwards;
+}
+
+@-webkit-keyframes animationBurgerBottomReverse {
+  0%, 50% { -webkit-transform: translateY(-12px); opacity: 0; }
+  51% { -webkit-transform: translateY(-12px); opacity: 1; }
+  100% { -webkit-transform: translateY(0px); opacity: 1; }
+}
+@keyframes animationBurgerBottomReverse {
+  0%, 50% { transform: translateY(-12px); opacity: 0; }
+  51% { transform: translateY(-12px); opacity: 1; }
+  100% { transform: translateY(0px); opacity: 1; }
+}
+
+.btn-menu-mobile.active .burger:after {
+  -webkit-animation: animationBurgerBottom 1s ease forwards;
+  animation: animationBurgerBottom 1s ease forwards;
+}
+
+@-webkit-keyframes animationBurgerBottom {
+  0% { -webkit-transform: translateY(0px); opacity: 1; }
+  50% { -webkit-transform: translateY(-12px); opacity: 1; }
+  51%, 100% { -webkit-transform: translateY(-12px); opacity: 0; }
+}
+@keyframes animationBurgerBottom {
+  0% { transform: translateY(0px); opacity: 1; }
+  50% { transform: translateY(-12px); opacity: 1; }
+  51%, 100% { transform: translateY(-12px); opacity: 0; }
+}

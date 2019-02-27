@@ -1,0 +1,59 @@
+<aside id="left-sidebar-nav" class="nav-expanded nav-lock nav-collapsible">
+    <div class="brand-sidebar">
+        <h1 class="logo-wrapper">
+            <a href="#" class="brand-logo darken-1">
+                <img src="{{ asset('assets/img/logo.png') }}" alt="LOGO">
+            </a>
+            <a href="#" class="navbar-toggler">
+                <i class="material-icons">radio_button_checked</i>
+            </a>
+        </h1>
+    </div>
+    <ul id="slide-out" class="side-nav fixed leftside-navigation">
+        <li class="no-padding">
+            <ul class="collapsible" data-collapsible="accordion">
+                {% if is_granted(constant('\\App\\Security\\Voter\\UserVoter::USER_VIEW')) %}
+                <li class="bold {% if app.request.attributes.get('_route') == 'dashboard' %}active{% endif %}">
+                    <a href="{{ path('dashboard') }}">
+                        <i class="material-icons">dashboard</i>
+                        <span class="nav-text">{{ 'menu.user.dashboard'|trans }}</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% if is_granted(constant('\\App\\Security\\Voter\\GainsVoter::GAINS_VIEW')) %}
+                <li class="bold {% if app.request.attributes.get('_route') == 'middle_gains' %}active{% endif %}">
+                    <a href="{{ path('middle_gains') }}">
+                        <i class="material-icons">monetization_on</i>
+                        <span class="nav-text">{{ 'menu.user.gains'|trans }}</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% if is_granted(constant('\\App\\Security\\Voter\\UserVoter::USER_EDIT')) %}
+                <li class="bold {% if app.request.attributes.get('_route') == 'middle_profil_edit' %}active{% endif %}">
+                    <a href="{{ path('middle_profil_edit') }}">
+                        <i class="material-icons">person</i>
+                        <span class="nav-text">{{ 'menu.user.profil'|trans }}</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% if is_granted(constant('\\App\\Security\\Voter\\StatistiqueVoter::STATISTIQUE_VIEW')) %}
+                <li class="bold {% if app.request.attributes.get('_route') == 'middle_statistic' %}active{% endif %}">
+                    <a href="{{ path('middle_statistic') }}">
+                        <i class="material-icons">timeline</i>
+                        <span class="nav-text">{{ 'menu.user.stat'|trans }}</span>
+                    </a>
+                </li>
+                {% endif %}
+                <li class="bold">
+                    <a href="{{ path('user_logout') }}">
+                        <i class="material-icons">close</i>
+                        <span class="nav-text">{{ 'menu.user.logout'|trans }}</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only gradient-45deg-light-blue-cyan gradient-shadow">
+        <i class="material-icons">menu</i>
+    </a>
+</aside>

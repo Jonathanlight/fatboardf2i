@@ -1,0 +1,440 @@
+/* ---- Order ---- */
+.page-default {
+  .search-wrap {
+    @include max(sm){ display: none;}
+
+    .search-icon { width: 67%; top: calc(60% - 65px);}
+    .search-section {
+      height: 280px; padding-top: rem(135px);
+      .search-title {
+        &:before { display: none;}
+        &:after { content: '';  width: 40px; height: 4px; background: $primary; display: block; margin: rem(20px) auto 0;}
+      }
+      .form-group  { display: none;}
+    }
+  }
+
+  .default-wrap {
+    background: $white;
+    .default-content { padding-bottom: rem(80px);
+      @include max(sm){ padding-bottom: rem(40px);}
+    }
+    .col-content { padding-right: rem(105px);
+      @include max(md){ padding-right: rem(60px);}
+      @include max(sm){ padding-right: rem(20px);}
+
+    }
+    .default-aside {
+      @include max(sm){ padding-top: rem(20px);}
+
+      .aside-block { box-shadow: 0 0 30px 0 $nude-30;
+        @include max(sm){ box-shadow: 0 0 30px 0 rgba(12, 20, 61, 0.15);}
+      }
+    }
+    .col-aside { background: $nude-20;
+      @include max(sm){ background: $white; }
+      &:after { background: $nude-20;
+        @include max(sm){ background: $white;}
+      }
+    }
+  }
+}
+
+// Order Head
+.order-head-block {
+  @extend .clearfix; margin-bottom: rem(40px); display: flex; flex-wrap: wrap;
+  @include max(xs){display: block; margin-bottom: rem(30px);}
+
+  // Title
+  .order-title-block {
+    float: left; width: calc(100% - 190px); border-left: 3px solid $primary; padding-left: rem(20px); padding-right: rem(10px);
+    @include max(xs){float: none; width: 100%; border: 0; padding: 0; margin-bottom: rem(15px);}
+
+    .order-title {
+      font-size: rem(18px); line-height: 1.5; letter-spacing: 0.9px;  margin-bottom: rem(5px);
+      @include max(md){ font-size: rem(16px);}
+    }
+    .order-text { font-size: rem(12px); color: $grey-60; }
+  }
+
+  // Agg
+  .order-aggregation-block { float: left; width: 190px; border-left: solid 3px #e3ebf3; padding-left: rem(10px); @extend .clearfix; padding-top: rem(5px);
+    @include max(xs){float: none; width: 100%; border: 0; padding: 0;}
+
+    .order-agg-text {
+      font-size: rem(8px); line-height: 1.63; text-align: right; float: left; width: calc(100% - 80px); padding-right: rem(7px);
+      @include max(xs){float: right; padding-right: 35%; padding-left: rem(10px); text-align: left; padding-top: rem(5px);}
+
+    }
+    img { width: 80px; float: left; border: 2px solid $white;
+      @include max(xs){float: left;}
+
+    }
+  }
+}
+
+// Order
+.order-selected-block {
+  margin-bottom: rem(55px);
+  @include max(xs){margin-bottom: rem(40px);}
+
+  $gutter: 7px;
+  $gutter-xs : 10px;
+  .row {
+    margin-left: -$gutter; margin-right: -$gutter;
+    @include max(sm){ margin-left: -$gutter-xs; margin-right: -$gutter-xs;  }
+  }
+  [class*="col-"]{ padding-left: $gutter; padding-right: $gutter;
+    @include max(sm){  padding-left: $gutter-xs; padding-right: $gutter-xs;   }
+
+  }
+
+  .order-info-block {
+    @include min(sm){ height: 100%; min-height: 150px;}
+    text-align: center;
+    border-radius: 4px; background-color: $white; box-shadow: 0 0 30px 0 rgba(22, 38, 130, 0.15); padding: rem(20px);
+    @include max(xs){ padding:rem(20px) rem(5px);}
+
+    .order-icon { height: 30px; margin-bottom: rem(15px);}
+
+    .order-hours-block {
+      @extend .clearfix;
+      .order-date-block {
+        float: left; width: 50%; font-size: rem(12px); @extend .clearfix; font-weight: 300;
+        @include max(xs){ float: none; width: 100%;}
+
+        strong { font-weight: bold;}
+        .order-date { margin-bottom: rem(5px);}
+
+        + .order-date-block {
+          @include max(xs){margin-top: 25px;}
+
+        }
+      }
+      .order-hours {
+        position: relative;
+        @extend .clearfix;
+        &:before {
+          content: ' '; width: 20px; height: 1px; background: $primary; display: block; position: absolute; left: 50%; transform: translateX(-50%); top: 8px;
+
+          @include max(xs){ width: 12px;}
+        }
+      }
+      .order-hour {
+        float: left; width: 50%;
+      }
+    }
+
+    // Sp
+    &.order-height-block { height: 100%;
+      .order-icon { height: 30px;
+        @include max(xs){  margin: rem(15px) 0 rem(30px);}
+      }
+    }
+    &.order-place-block {
+      font-size: rem(11px); line-height: 1.6;
+      @include max(xs){margin-bottom: rem(20px);}
+    }
+    &.order-price-block { padding-top: rem(50px); font-size: rem(28px); font-weight: bold; letter-spacing: 0.2px;
+      @include max(xs){ padding: rem(40px) 0;}
+      sup {
+        font-size: rem(12px); font-weight: 300; letter-spacing: 0.1px;  top: -11px;
+      }
+    }
+  }
+}
+
+// Nav
+.order-nav {
+  margin-bottom: rem(35px); display: flex;
+  @include max(xs){ margin-bottom: rem(25px); display: block;     white-space: nowrap;}
+  li {
+    flex: 1;
+    @include max(xs){ margin-left: rem(-5px);}
+
+    &.active, &.old-active {
+      a { pointer-events: none; color: $primary; border-color: $primary;
+      }
+    }
+    &.old-active {
+      a { pointer-events: visible;
+        @include max(xs){ display: none;}
+      }
+      &.old-last {
+        a {
+          @include max(xs){ display: block; color: $grey-80; border-bottom: 2px solid $grey-80;}
+        }
+      }
+    }
+    &:not(:last-child) { margin-right: 0; }
+    a {
+      display: block; text-align: center; font-size: rem(10px); text-transform: uppercase; color: $text-color; pointer-events: none; padding-bottom: rem(25px); border-bottom: 2px solid $grey-80;
+      @include max(xs){ padding: 0 rem(40px) rem(25px); color: $grey-80;}
+      &:hover, &:focus { text-decoration: none; }
+    }
+  }
+}
+
+// Content
+
+// Step 1
+.form-order {
+  $gutter: 30px;
+  $gutter-sm : 20px;
+  .row {
+    margin-left: -$gutter; margin-right: -$gutter;
+    @include max(sm){ margin-left: -$gutter-sm; margin-right: -$gutter-sm;  }
+  }
+  [class*="col-"]{ padding-left: $gutter; padding-right: $gutter;
+    @include max(sm){  padding-left: $gutter-sm; padding-right: $gutter-sm;   }
+
+  }
+
+  // Title
+  .form-order-title {
+    font-weight: 400; font-size: rem(14px); text-transform: uppercase; line-height: 1.71; letter-spacing: 1px;  margin-bottom: rem(35px);
+  }
+
+  // Text
+  .form-order-text {
+    font-size: rem(12px); line-height: 1.83; letter-spacing: 0.4px; margin-bottom: rem(24px); max-width: 520px; width: 100%;
+    @include max(xs){ margin-top: rem(-10px);}
+  }
+
+  // Form
+  .form-radio { display: inline-block;
+    + .form-radio { margin-left: rem(20px);}
+  }
+  .row-address { padding-bottom: rem(35px);
+    @include max(xs){ padding-bottom: rem(5px);}
+  }
+}
+
+
+
+// Step 2
+
+.form-order-stage-content { margin-bottom: rem(35px);
+  .form-radio {
+    display: block; padding: rem(20px); border-top: solid 2px $grey-80; border-bottom: solid 2px $grey-80;
+    &.active, &:hover {
+      background: rgba($grey-80, 0.2);
+      .label-text{
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+
+    .label-number {
+      font-size: rem(18px); font-weight: 300; letter-spacing: 0.1px; padding-left: rem(14px);
+    }
+    .label-text {
+      font-size: rem(12px); font-weight: 600; letter-spacing: 0.1px; padding-left: rem(14px); position: relative; margin-bottom: rem(10px);
+      &:after {
+        content: ''; width: 20px; height: 3px; background: $secondary; display: block; transition: 0.3s; position: absolute; left: 14px; top: calc(100% + 8px); opacity: 0;
+      }
+    }
+    input[type=radio] {
+      +label {
+        .icon { margin-top: rem(14px);}
+      }
+      &:checked {
+        + label {
+          + .form-radio-content { display: block;}
+        }
+      }
+    }
+    .form-radio-content {
+      display: none; padding: rem(10px) 0 0 rem(39px); font-size: rem(12px);
+
+      &.form-48N {
+        @include max(xs){ padding-left: 0;}
+        $gutter: 15px;
+        .row { margin-left: -$gutter; margin-right: -$gutter; }
+        [class*="col-"]{ padding-left: $gutter; padding-right: $gutter; }
+        .form-control { height: 45px; background: $white;}
+        .form-group { margin-bottom: rem(15px);
+          label { font-size: rem(12px);}
+        }
+        .form-select:after {
+          top: 67%;
+        }
+
+        .btn-link-primary { display: block; margin-top: rem(15px); font-weight: 600; margin-bottom: rem(5px); color: $primary; border-radius: 0; min-height: auto; padding: 0; border: 0; background: transparent;
+          &:hover, &:focus { color: $secondary; text-decoration: none}
+        }
+      }
+
+      .form-point { margin-bottom: rem(15px);
+        .form-point-first, .form-point-second { display: inline-block; vertical-align: middle;}
+        .form-select-arrow { width: 70px; display: inline-block; vertical-align: middle; margin: 0 rem(4px);
+          @include max(xs){ width: 100%; display: block; margin:rem(4px) 0; }
+          .form-select {
+            select { background: $white; height: 32px;
+              @include max(xs){ height: 40px; }
+
+            }
+          }
+        }
+      }
+
+      .form-checkbox {
+        label { font-size: rem(12px);}
+      }
+    }
+
+    + .form-radio { margin-left: 0; margin-top: rem(-2px); }
+  }
+}
+
+.form-select-date {
+  &.hover {
+    label {
+      strong { color: $secondary; font-weight: 700;}
+    }
+  }
+  label {
+    font-size: rem(14px); margin-bottom: rem(5px); letter-spacing: 0.6px;
+    strong { font-weight: 400;}
+    @include max(xs){ font-size: rem(12px); }
+
+  }
+  $gutter: 10px;
+  $gutter-xs : 5px;
+  .row {
+    margin-left: -$gutter; margin-right: -$gutter;
+    @include max(xs){ margin-left: -$gutter-xs; margin-right: -$gutter-xs;  }
+  }
+  [class*="col-"]{ padding-left: $gutter; padding-right: $gutter;
+    @include max(xs){  padding-left: $gutter-xs; padding-right: $gutter-xs;   }
+  }
+}
+
+.permis-nav {
+  @extend .clearfix; margin: 0 rem(-20px) rem(50px);
+  @include max(xs){ margin: 0 0 rem(30px);}
+
+  li { float: left; width: 50%; padding: 0 rem(20px);
+    @include max(xs){ float: none; width: 100%; padding: 0;}
+    &:nth-child(2){
+      .form-radio {
+        label {
+          padding-top: rem(30px);
+          @include max(xs){ padding-top: rem(20px);}
+          img {
+            @include max(xs){ height: 50px; margin-left: rem(-15px);}
+          }
+          .label-align {
+            margin-top: rem(11px);
+            @include max(xs){ margin-top: rem(3px);}
+          }
+        }
+      }
+    }
+    &:not(:last-child) { margin-right: 0;}
+    .form-radio { display: block;
+      input[type="radio"] {
+        &:checked {
+          + label { border: 2px solid $secondary;   background-color: rgba($secondary, 0.1);}
+        }
+      }
+      label { border: 2px solid $grey-80; display: block; border-radius: 6px; padding: rem(15px) rem(30px) rem(10px) rem(70px); transition: 0.3s; display: block; height: 120px; position: relative;
+        @include max(xs){ height: 95px; padding: rem(7px) rem(10px) rem(10px) rem(80px);}
+        &:hover { border: 2px solid $secondary;}
+        .icon {
+          position: absolute; left: 25px; top: 50%; transform: translateY(-50%);
+        }
+        img { float: left;
+          @include max(xs){ height: 76px;}
+        }
+        .label-align {
+          float: left; width: auto; font-size: rem(14px); text-transform: uppercase; line-height: 1.43; letter-spacing: 1px; width: 50px; margin-left: rem(20px); margin-top: rem(23px);
+          @include max(xs){  margin-left: rem(30px); margin-top: rem(20px);}
+
+        }
+      }
+    }
+
+  }
+}
+
+
+.row-old-format, .row-new-format {
+  > .row {
+    &:first-child {
+      @include max(xs){ display: flex; flex-direction: column-reverse;}
+    }
+  }
+
+  .img-permis-block {
+    position: relative; max-width: 245px; width: 100%; float: right;
+    @include max(xs){ float: none; display: block; margin: 0 auto; max-width: 180px;}
+
+    .indicator-permis {
+      background: $secondary; width: 22px; height: 22px; border-radius: 50%; color: $white; display: none; position: absolute;     top: 152px; left: -37px; z-index: 2; font-size: rem(8px); font-weight: 600; letter-spacing: 0px; text-align: center; line-height: 22px; box-shadow: 0 0 20px rgba($green-10,0.3);
+      @include max(xs){ top: 106px;}
+
+
+      &[data-child="2"]{
+        top: 170px;
+        @include max(xs){ top: 118px;}
+      }
+      &[data-child="3"]{
+        top: 185px;
+        @include max(xs){ top: 129px;}
+      }
+      &:before {
+        content: ' '; width: 23px; height: 21px; background-repeat: no-repeat; display: block; background-position: center center; background-image: url('../../img/icons/indicator-lign.svg'); position: absolute; right: -23px; top: 5px;
+      }
+      &.active, &.selected { display: block;}
+    }
+    .img-permis {
+      box-shadow: 0 8px 20px rgba($pink,0.2); border-radius: 9px;
+    }
+  }
+
+  .img-permis {
+    @include max(xs){ max-width: 180px; width: 100%; margin: 0 auto rem(25px); float: none; display: block;}
+  }
+
+  .form-group {
+    &.hover, &.selected {
+      label {
+        strong { color: $secondary; font-weight: 700;}
+      }
+    }
+  }
+}
+
+.row-new-format { display: none;
+  .img-permis { width: 100%;}
+}
+
+.row-actions {
+  margin-top: rem(50px);
+  @include max(xs){ margin-top: rem(10px);}
+
+  .form-checkbox {padding-top: rem(5px);}
+  .form-checkbox input[type=checkbox]+label .icon { margin-top: rem(12px);}
+}
+
+
+// Step 4
+.order-summary-block {
+  text-align: center;
+  .order-summary-title {
+    font-size: rem(20px); line-height: 1.7; letter-spacing: 1px;
+    @include max(xs){ font-size: rem(16px);}
+    &:after {
+      content: ''; margin: rem(40px) auto rem(30px); width: 30px; height: 4px; background: $secondary; display: block;
+      @include max(xs){ margin: rem(25px) auto rem(30px);}
+
+    }
+  }
+
+  .btn {
+    min-width: 220px; height: 50px; min-height: 50px; padding: rem(16px) rem(20px);
+    @include max(xs){ float: none; width: 100%; }
+  }
+}

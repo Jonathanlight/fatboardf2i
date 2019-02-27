@@ -1,0 +1,88 @@
+// COLOURS
+$blue:          #273c75;
+$blue-10:       #1044f5;
+$blue-20:       #162682;
+$blue-30:       #2E44C2;
+$midnight-blue: #050920;
+$dark-grey:     #1F1F1F;
+$grey:          #eee;
+$grey-10:       #36363c;
+$grey-20:       #F3F6F7;
+$grey-30:       #DEE4E6;
+$grey-40:       #B6C5CA;
+$grey-50:       #E4E4E4;
+$grey-60:       #757575;
+$grey-70:       #bababa;
+$grey-80:       #e3ebf3;
+$grey-90:       #aeb8bd;
+$grey-100:      #D0D9E0;
+$grey-110:      #dee2e5;
+$grey-120:      #EAF1F3;
+$grey-130:      #F5F8F9;
+$grey-140:      #bfc2c3;
+$red:           #FF2849;
+$green:         #17E0AB;
+$green-10:      #215F4F;
+$yellow:        #fbc531;
+$white:         #fff;
+$black:         #000;
+$purple:        #6B6BED;
+$purple-10:     #8383F8;
+$pink:          #572233;
+$purple-20:     #D6D6F0;
+$light-purple:  #DCDCFF;
+$light-purple-10:#DDDDF0;
+$light-purple-20:#f0f0f9;
+$nude:          #F5ECED;
+$nude-10:       #D2CBCB;
+$nude-20:       #F8F1F2;
+$nude-30:       #e2d5d6;
+$nude-40:       #FBF7F7;
+$nude-50:       #F1E5E5;
+
+$primary:     $purple;
+$secondary :  $green;
+$tertiary:    $dark-grey;
+
+$success:    $green;
+$info:       $primary;
+$warning:    $yellow;
+$danger:     $red;
+
+// Complement
+$border-color:    #d8d7d5;
+$text-color:      $dark-grey;
+$input-color:     $grey-20;
+
+// SIZES
+$btn-height: 60px;
+$input-height: 50px;
+$input-height-lg: 60px;
+
+// Gutter Padding
+$grid-gutter-width: 40px;
+
+// FONTS
+@import "mixins/strip-unit";
+$font-family-base: 'Montserrat', Arial, sans-serif;
+
+  // Fz Bootstrap
+  $font-size-base: 1rem /* 16px*/;
+  $font-value-base: strip-unit($font-size-base);
+
+  // Fz for mixin rem
+  $font-size-base-px: (16px*$font-value-base) /* 1rem */;
+
+// BREAK-POINTS
+$grid-breakpoints: (
+  xs: 0,
+  sm: 768px,
+  md: 1024px,
+  lg: 1280px,
+  xl: 1445px
+) !default;
+
+// Container
+$container-max-widths: (
+  lg: 1200px
+) !default;

@@ -1,0 +1,39 @@
+// Variables
+@import "../common/variables";
+
+// Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+// AOS
+@import "node_modules/aos/src/sass/aos.scss";
+
+// Owl
+// @import "node_modules/owl.carousel/src/scss/owl.carousel.scss";
+
+// Mixins
+@import "../common/mixins/bg-cover";
+@import "../common/mixins/circle";
+@import "../common/mixins/flex";
+@import "../common/mixins/fonts-typo";
+@import "../common/mixins/fonts-vendor";
+@import "../common/mixins/breakpoints";
+@import "../common/mixins/rem";
+
+// Components
+@import "components/commons";
+@import "../common/components/buttons";
+// @import "components/carousels";
+@import "../common/components/fonts";
+@import "../common/components/forms";
+@import "components/forms";
+@import "../common/components/lists";
+@import "components/structure";
+@import "../common/components/iconfont";
+
+// Layouts
+@import "layouts/header";
+
+// Pages
+@import "pages/authentification";
+@import "pages/stage";
+@import "pages/dashboard";

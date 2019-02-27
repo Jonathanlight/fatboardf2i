@@ -1,0 +1,74 @@
+{% extends "middle/base.html.twig" %}
+
+{% block title %} {{ 'menu.user.gains'|trans }} {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <!--card stats start-->
+        <div id="card-stats">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 white-text">
+                        <div class="padding">
+                            <div class="col s7 m7 ">
+                                <i class="material-icons background-round mt-5">monetization_on</i>
+                            </div>
+                            <div class="col s5 m5 right-align">
+                                <h5 class="mb-0">{{ 'menu.user.gains'|trans }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="row">
+                    <div id="popMessages" class="card"></div>
+                    {{ form_start(form, { 'attr': {'class': 'formGain'} }) }}
+                    <input type="hidden" id="lot_user" value="{{ app.user.id }}">
+                    <div class="input-field col s12 m4">
+                        {{ form_row(form.reference) }}
+                        {{ form_errors(form.reference) }}
+                    </div>
+                    <div class="input-field col s12 m4">
+                        {{ form_row(form.code) }}
+                        {{ form_errors(form.code) }}
+                    </div>
+                    <div class="input-field col s12 m4">
+                        {{ form_row(form.submit) }}
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+
+        <div id="card-stats">
+            <div class="row">
+                {% for lotUser in lotUsers %}
+                    <div class="col s12 m6 l6">
+                        <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 white-text">
+                            <div class="padding-4">
+                                <div class="col s7 m7">
+
+                                    {% if lotUser.status == 'register' %}
+                                        <i class="material-icons blue background-round mt-5">book</i>
+                                    {% else %}
+                                        <i class="material-icons red background-round mt-5">book</i>
+                                     {% endif %}
+                                    <p>{{ lotUser.lots.name }}</p>
+                                </div>
+                                <div class="col s5 m5 right-align">
+                                    <h5 class="mb-0">{{ lotUser.reference }}</h5>
+                                    <p class="no-margin">{{ lotUser.code }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

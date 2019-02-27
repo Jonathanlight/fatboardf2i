@@ -1,0 +1,72 @@
+/* ---- Détail Stage ---- */
+// Detail
+.detail-stage-block { border-top: 6px solid $grey-80; padding-top: rem(30px);}
+
+
+// Participants
+.participants-block {
+  padding: rem(30px) rem(60px); border-radius: 6px; box-shadow: 0 0 30px 0 rgba(44, 44, 121, 0.1);
+
+  // Title
+  .participants-title-block {
+    @extend .clearfix; margin-bottom: rem(25px);
+    .participants-title {
+      font-size: rem(16px); letter-spacing: 0.6px; float: left; margin-top: rem(15px); margin-bottom: 0;
+      @include max(lg){ font-size: rem(14px);}
+    }
+    .btn { float: right;}
+  }
+
+  // List
+  .list-participants {
+    counter-reset: participants;
+    $gutter: 10px;
+    margin-left: -$gutter; margin-right: -$gutter;
+    [class*="col-"]{ padding-left: $gutter; padding-right: $gutter; }
+    .col {
+      &:nth-child(4n+2), &:nth-child(4n+3) {
+        .participants-item {
+          background: $grey-130;
+        }
+      }
+      .participants-item {
+        height: 70px; margin-bottom: 10px; background: $nude-40; font-size: rem(12px); letter-spacing: 1px;
+        align-items: center; display: flex; padding: 0 rem(20px);
+        &:before {
+          counter-increment: participants; content: "#" counter(participants, decimal-leading-zero); font-size: rem(18px); font-weight: 300; letter-spacing: 0.9px;
+        }
+        .participants-name { padding-left: rem(30px);}
+
+        &:hover, &:focus { text-decoration: none;}
+      }
+    }
+  }
+}
+
+
+// Add Stage
+.add-stage-block {
+  border-radius: 6px; background-color: $white; box-shadow: 0 0 30px 0 rgba(44, 44, 121, 0.1); padding: rem(40px) rem(60px) rem(25px);
+
+  +.add-stage-block { margin-top: rem(30px);}
+
+  .col-hour {
+    $gutter: 10px;
+    .row { margin-left: -$gutter; margin-right: -$gutter;}
+    [class*="col-"]{ padding-left: $gutter; padding-right: $gutter; }
+  }
+
+  .col-quantity {
+    .control-label { width: 200px;}
+  }
+}
+.add-stage-sp-block {
+  $gutter: 30px;
+  .row { margin-left: -$gutter; margin-right: -$gutter;}
+  [class*="col"],[class*="col-"]{ padding-left: $gutter; padding-right: $gutter; }
+  .col-sm-2 {
+    -webkit-box-flex: 0; flex: 0 0 18%; max-width: 18%;
+  }
+}
+
+.add-stage-action-block { padding-top: rem(30px); text-align: right;}

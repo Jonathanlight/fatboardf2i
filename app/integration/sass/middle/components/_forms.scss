@@ -1,0 +1,9 @@
+/* ---- Form ---- */
+.form-group {
+  margin-bottom: rem(15px);
+  label { font-weight: 500;}
+}
+
+.form-select {
+   &:after { color: $primary;}
+}

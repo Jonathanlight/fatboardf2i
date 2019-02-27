@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google. ">
+    <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template,">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <!-- Favicons-->
+    <link rel="icon" href="{{ asset('assets/img/favicon.ico') }}" sizes="32x32">
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('assets/img/favicon.ico') }}">
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#00bcd4">
+    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+    <!-- For Windows Phone -->
+    <!-- CORE CSS-->
+    <link href="{{ asset('assets/css//materialize.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" type="text/css" rel="stylesheet">
+    <!-- Custome CSS-->
+    <link href="{{ asset('assets/css/custom.css') }}" type="text/css" rel="stylesheet">
+    <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
+    <link href="{{ asset('assets/css/perfect-scrollbar.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('assets/css/jquery-jvectormap.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('assets/css/flag-icon.min.css') }}" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body class="layout-semi-dark">
+<header id="header" class="page-topbar">
+    <!-- start header nav-->
+    <div class="navbar-fixed">
+        <nav class="navbar-color">
+            <div class="nav-wrapper">
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- START MAIN -->
+<div id="main">
+    <!-- START WRAPPER -->
+    <div class="wrapper">
+        <!-- START LEFT SIDEBAR NAV-->
+        {% include 'components/menu_user.html.twig' %}
+        <!-- START CONTENT -->
+        <section id="content">
+            <!-- MESSAGE FLASH -->
+            {% include 'components/messageFlash.html.twig' %}
+
+            <!--start container-->
+            {% block body %}{% endblock %}
+        </section>
+    </div>
+</div>
+
+<footer class="page-footer">
+    <div class="footer-copyright">
+        <div class="container">
+            <span>Copyright © <script type="text/javascript"> document.write(new Date().getFullYear());</script></span>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery Library -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!--materialize js-->
+<script type="text/javascript" src="{{ asset('assets/js/materialize.min.js') }}"></script>
+<!--scrollbar-->
+<script type="text/javascript" src="{{ asset('assets/js/perfect-scrollbar.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/plugins.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/init.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/main.js') }}"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,271 @@
+/* ---- Common ---- */
+// Title
+.middle-default-title {
+  position: relative;  display: block;  padding-left: rem(20px); margin-bottom: rem(40px);
+  // @include max(xs){ font-size: rem(15px); padding-bottom: rem(15px);}
+  &:before { content: ''; width: 4px; height: 30px; background: $secondary; display: block; position: absolute; left: 0; top: 50%; transform: translateY(-50%);;
+    // @include max(xs){ transform: translateY(calc(-50% - 7.5px));}
+  }
+  font-size: rem(20px); line-height: 1.6; letter-spacing: 1px;
+}
+
+.middle-default-alt-title {
+  font-size: rem(16px); letter-spacing: 0.6px;
+  &:after {
+    content: ''; display: block; width: 20px; height: 3px; background: $secondary; margin: rem(15px) 0;
+  }
+}
+
+// List
+.list-info-default {
+  font-size: rem(14px);
+  li { @extend .clearfix;
+    + li { margin-top: rem(7px);}
+  }
+  .info-label { letter-spacing: 0.5px; font-weight: 600; float: left; padding-right: rem(10px); width: 155px;}
+  .info-detail { float: left; width: calc(100% - 155px); @extend .clearfix; letter-spacing: 0.5px;
+    &.info-mail, &.info-break { word-break: break-all;}
+
+    // Sp
+    .info-price { float: left; width: 60px;}
+    .info-word { float: left; width: 55px; font-weight: 700;}
+    .info-text { float: left; width: calc(100% - 60px - 55px);
+      strong { padding: 0 rem(7px);}
+    }
+  }
+
+  // XS
+  &.list-xs {
+    .info-label { width: 120px;}
+    .info-detail { width: calc(100% - 120px); }
+  }
+
+  // Lg
+  &.list-lg {
+    .info-label { width: 190px;}
+    .info-detail { width: calc(100% - 190px); }
+  }
+
+  // Lg
+  &.list-xl {
+    .info-label { width: 250px;}
+    .info-detail { width: calc(100% - 250px); }
+  }
+}
+
+// Title
+.middle-title-section {
+  @extend .clearfix; margin-bottom: rem(10px);
+
+  .middle-default-title { float: left;}
+  .head-action-block { float: right;
+    .btn { min-height: 50px; min-width: 120px; padding: rem(16px) rem(20px);}
+    .link-archives {
+      font-size: rem(13px); text-transform: uppercase; color: $secondary; margin-right: rem(40px); font-weight: 600; position: relative;
+      &:hover, &:focus { text-decoration: none; color: $primary; transition: 0.3s;
+        &:after { background: $primary;}
+      }
+      &:after {
+        content: ''; width: 100%; left: 50%; top: calc(100% + 2px);  transform: translateX(-50%); position: absolute;  display: block; height: 2px; background: $secondary;
+      }
+    }
+    .head-list-action {
+      li {
+        &:not(:last-child) { margin-right: rem(30px);}
+      }
+    }
+
+    .list-middle-link { margin-bottom: 0; margin-top: rem(10px);
+      + .btn { margin-left: rem(30px);}
+      li {
+        float: left;
+        &:not(:last-child) { margin-right: rem(30px);}
+        a {
+          font-size: rem(13px); text-transform: uppercase; color: $secondary; font-weight: 600; position: relative;
+          &:hover, &:focus {
+            text-decoration: none; color: $primary; transition: 0.3s;
+            &:after { background: $primary;}
+          }
+          &:after {
+            content: ''; width: 100%; left: 50%; top: calc(100% + 2px);  transform: translateX(-50%); position: absolute;  display: block; height: 2px; background: $secondary;
+          }
+        }
+      }
+    }
+    .btn-filter {
+      @extend .icon-filter-form;
+      &:before { display: none; font-size: rem(16px); line-height: 1;}
+      &.active {
+        &:before { display: block; }
+        span { display: none;}
+        background-color: transparent; border-color: $secondary; color: $secondary; box-shadow: none !important;
+      }
+    }
+  }
+}
+
+// Form
+.form-section {
+  margin-bottom: rem(30px); padding: rem(25px) 0 rem(15px);
+  border-top: 1px solid $grey-30; border-bottom: 1px solid $grey-30; display: none;
+  $gutter: 15px;
+  .row { margin-left: -$gutter; margin-right: -$gutter; }
+  [class*="col-"]{ padding-left: $gutter; padding-right: $gutter; }
+  .btn { margin-top: rem(28px);
+    @extend .btn-sm; font-size: rem(11px);
+  }
+}
+
+
+// Table listing
+.table-listing { margin-bottom: 0; border: 0;
+  thead {
+    tr {
+      th { color: $white; font-size: rem(11px); font-weight: 500; border: 0; background: $blue-20; vertical-align: middle; text-align: center;
+        &:first-child {
+          border-radius: 6px 0 0 11px;
+        }
+        &:last-child {
+          border-radius: 0 6px 11px 0;
+        }
+        + th { border-left: 1px solid $blue-30;}
+      }
+    }
+  }
+
+  tr {
+    &:nth-child(odd) {
+      td {
+         background: $nude-40;
+         + td { border-left-color: $nude-50;}
+      }
+    }
+
+    td { border-top: 10px solid $white;  vertical-align: middle; font-size: rem(12px); text-align: center; position: relative; min-height: 70px;
+      &:first-child {
+        border-radius: 11px 0 0 11px;
+      }
+      &:last-child {
+        border-radius: 0 11px 11px 0;
+      }
+      + td { border-left: 1px solid $grey-120;}
+      .list-action { margin-bottom: 0; height: 36px; line-height: 36px; white-space: nowrap;
+        li {
+          &:not(:last-child) { margin-right: rem(14px);}
+          a { color: $text-color; font-size: rem(16px);
+            &:hover, &:focus { color: $secondary; text-decoration: none;}
+          }
+        }
+      }
+
+      .form-checkbox {
+        label { margin-bottom: 0;
+          .icon { margin: 0; background: $white; border: 1px solid $grey-30; width: 20px; height: 20px;
+            &:before { width: 10px; height: 10px; left: 4px;}
+          }
+        }
+      }
+    }
+  }
+
+  &.table-dashboard { box-shadow: 0 0 20px 0 rgba(44, 44, 121, 0.1);
+    thead {
+      tr {
+        th {
+          &:first-child {
+            border-radius: 6px 0 0 6px;
+          }
+          &:last-child {
+            border-radius: 0 6px 6px 0;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        td { border-top: 0 ; padding: rem(15px) rem(30px);
+          &:first-child {
+            border-radius: 6px 0 0 6px;
+            width: 465px; text-align: left;
+          }
+          &:last-child {
+            border-radius: 0 6px 6px 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Table listing
+.table-inscription { margin-bottom: 0; border: 0;
+  thead {
+    tr {
+      th { color: $white; font-size: rem(11px); font-weight: 500; border: 0; background: $primary; vertical-align: middle; text-align: center;  width: 90px;  padding: rem(12px) rem(2px);
+        &.d-none-md {
+          @include max(md){ display: none;}
+        }
+        &:first-child {
+          border-radius: 6px 0 0 11px; width: 180px; text-align: left; padding: rem(12px);
+        }
+        &:last-child {
+          border-radius: 0 6px 11px 0;
+        }
+        + th { border-left: 1px solid $purple-10;}
+      }
+    }
+  }
+
+  tr {
+    &:nth-child(odd) {
+      td {
+         background: $nude-40;
+         + td { border-left-color: $nude-50;}
+      }
+    }
+    &:nth-child(even) {
+      td {
+         background: $light-purple-20;
+         + td { border-left-color: $purple-20;}
+      }
+    }
+
+    td { border-top: 5px solid $white;  vertical-align: middle; font-size: rem(12px); text-align: center; position: relative; min-height: 70px; padding: 0;
+      &.d-none-md {
+        @include max(md){ display: none;}
+      }
+      &:first-child {
+        border-radius: 11px 0 0 11px; width: 180px; text-align: left; padding: rem(12px);
+      }
+      &:last-child {
+        border-radius: 0 11px 11px 0;
+      }
+      + td { border-left: 1px solid $grey-120;}
+      .icon-dot { width: 10px; height: 10px; background-color: $secondary; border-radius: 50%; display: inline-block;}
+      .btn { background: transparent; color: $text-color; border-radius: 0; box-shadow: none; border: 0; line-height: 1; font-size: rem(14px); height: 70px;
+        &:hover, &.active {
+          background-color: $secondary; color: $white;
+        }
+      }
+    }
+  }
+}
+
+/* ---- Card ---- */
+.detail-default-block {
+  border-radius: 6px; padding: rem(30px) rem(30px) rem(20px);
+  background-color: #ffffff;
+  box-shadow: 0 0 30px 0 rgba(44, 44, 121, 0.1);
+  +.detail-default-block { margin-top: rem(40px);}
+
+
+  .detail-default-title {
+    font-size: rem(16px); letter-spacing: 0.6px; margin-bottom: 0;
+    &:after { content: ''; display: block; width: 20px; height: 3px; background: $secondary; margin: rem(10px) 0 rem(15px);}
+
+  }
+
+  .detail-comment-text {
+    font-size: rem(12px); line-height: 1.67; letter-spacing: 0.5px;
+  }
+}

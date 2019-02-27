@@ -1,0 +1,171 @@
+/* ---- Common ---- */
+.search-wrap {
+  margin-top: rem(-135px); position: relative;
+  @include max(xs){ margin-top: 0;  }
+
+  .search-icon {
+    background-image: url('../../img/icons/icon-search-bg.svg'); height: 130px; background-repeat: no-repeat; position: absolute; width: 75%; z-index: 1; pointer-events: none; top: calc(50% - 65px); background-size: contain; left: calc(50% - 37.5%); background-position: center center;
+    @include max(xs){ background-image: url('../../img/icons/icon-search-xs-bg.svg'); width: 220px; left: calc(50% - 110px); top: 35px; height: 447px;}
+  }
+
+  .search-section {
+    height: 520px; padding-top: rem(175px);
+
+    @include bgc(bottom, center, $nude);
+    @include max(md){ height: 475px;}
+    @include max(xs){ height: 100%; padding-top: rem(100px); padding-bottom: rem(130px);}
+
+    .container { position: relative; z-index: 2;}
+    .search-block {
+      max-width: 640px; margin: 0 auto; width: 100%; position: relative;
+      @include max(sm){ max-width: 500px;}
+
+      .form-control {
+        border-radius: 30px; box-shadow: 0 0 40px 0 rgba(149, 149, 216, 0.6); background: $white; padding-left: rem(100px); font-size: rem(14px); padding-right: rem(50px); height: 60px;
+        @include max(xs){ height: 50px; padding-left: rem(30px); padding-right: rem(80px);}
+        &:hover, &:focus { border-color: $primary;}
+
+        &::-webkit-input-placeholder {
+          color: $nude-10; opacity: 1 !important;
+        }
+        &::-moz-placeholder { /* Firefox 19+ */
+          color: $nude-10; opacity: 1 !important;
+        }
+        &:-ms-input-placeholder { /* IE 10+ */
+          color: $nude-10; opacity: 1 !important;
+        }
+        &:-moz-placeholder { /* Firefox 18- */
+          color: $nude-10; opacity: 1 !important;
+        }
+        &:focus { box-shadow: 0 0 40px 0 rgba(149, 149, 216, 0.6);}
+      }
+
+      // Buttons
+      .btn-localisation { background: $white; position: absolute; left: 1px; top: 1px; bottom: 1px; min-height: 54px; border-radius: 30px 0 0 30px; color: $text-color; font-size: rem(15px); border:0; border-right: 1px solid $grey-50; width: 70px; padding: 0 0 0 rem(7px); line-height: 52px; font-size: rem(16px); z-index: 1;
+        @include max(xs){ height: 48px; min-height: 48px; bottom: auto; right: 0; left: auto; border-radius: 0 30px 30px 0; border-right: 0; border-left: 1px solid $grey-50; line-height: 48px; padding: 0 5px 0 0; }
+        &:hover, &:focus { color: $secondary;}
+      }
+      .btn-primary { width: 54px; height: 54px; border-radius: 50%; padding: 0; line-height: 50px; min-height: 54px; font-size: rem(14px); position: absolute; right: 3px; top: 3px; z-index: 1; box-shadow: none;
+        @include max(xs){ position: static; width: 100%; border-radius: 30px; height: 50px; min-height: 50px; line-height: 48px; margin-top: rem(20px); }
+        .search-text {
+          display: none; font-size: rem(11px); vertical-align: middle; margin-top: rem(-6px); margin-left: rem(10px);
+          @include max(xs){ display: inline-block; }
+          }
+      }
+    }
+
+    // Title
+    .search-title {
+      font-size: rem(24px); line-height: 1.67; letter-spacing: 1.2px; text-align: center; color: $grey-10; text-shadow: 0 0 20px rgba(0, 0, 0, 0.2); margin-bottom: rem(30px);
+      @include max(xs){ font-size: rem(14px); text-transform: uppercase; line-height: 1.71; letter-spacing: 1.1px;}
+
+      &:before {
+        content: ' '; background-image: url('../../img/icons/icon-car.svg'); display: block; width: 78px; height: 34px; background-position: center; background-repeat: no-repeat; background-size: contain; display: block; margin: 0 auto rem(20px);
+        @include max(xs){ width: 70px; height: 30px; }
+      }
+
+      span { color: $primary;}
+    }
+  }
+}
+
+// Default
+.default-wrap {
+  overflow: hidden; background: $grey-20; position: relative; z-index: 2;
+
+  $gutter: 40px;
+  .row {
+    @include min(lg){ margin-left: -$gutter; margin-right: -$gutter;}
+  }
+  [class*="col-"]{
+    @include min(lg){ padding-left: $gutter; padding-right: $gutter;}
+  }
+
+  // Content
+  .col-content {
+    position: relative;
+    @include min(md){ flex: 0 0 72.58%; max-width: 72.58%;}
+
+    .default-icon {
+      background-image: url('../../img/icons/icon-content-default-bg.svg'); width: 949px; height: 1035px; top: 260px; right: 25px; pointer-events: none; z-index: 1; display: block; position: absolute; background-repeat: no-repeat;
+      @include max(sm){ display: none;}
+    }
+    .container { position: relative; z-index: 2;}
+
+  }
+  .default-content {padding: rem(40px) 0 rem(30px);
+    @include max(sm){ padding-top: rem(20px);}
+    @include max(xs){ padding-top: rem(10px);}
+  }
+
+  // Aside
+  .col-aside {
+    background: $primary; border-bottom: 2px solid $white; position: relative; z-index: 1;
+    @include min(md){ flex: 0 0 27.42%; max-width: 27.42%;}
+    @include max(sm){ background: $white;}
+
+    &:after { content: ' '; right: -200%; background: $primary; top: 0; bottom: 0; width: 200%; display: block; position: absolute;}
+  }
+  .default-aside {
+    padding: rem(60px) 0; position: relative; z-index: 2;
+    &:before {
+      content: ''; background-image: url('../../img/icons/icon-aside-default-bg.svg'); width: 73px; height: 1347px; top: 145px; right: -100px; pointer-events: none; z-index: 1; display: block; position: absolute; background-repeat: no-repeat;
+      @include max(sm){ display: none;}
+    }
+    &.search-aside {
+      &:before {
+        background-image: url('../../img/icons/icon-aside-search-bg.svg'); width: 70px; height: 1235px;
+      }
+    }
+
+    .aside-block {
+      border-radius: 6px; background-color: $white; padding: rem(20px) rem(20px); box-shadow: 0 0 30px 0 rgba(22, 38, 130, 0.5); position: relative; z-index: 2; margin-bottom: rem(40px);
+      &:last-child { margin-bottom: 0;}
+      @include max(sm){ box-shadow: 0 0 30px 0 rgba(12, 20, 61, 0.15);}
+
+      .aside-b-title { text-transform: uppercase;  font-size: 12px; padding-bottom: rem(10px); font-weight: bold; letter-spacing: 0.6px; margin-bottom: rem(19px); border-bottom: 1px solid $grey-80;}
+
+      .form-control:not([multiple]) { height: 50px; }
+
+      .list-aside { margin-bottom: 0;
+        li {
+          font-size: rem(12px); line-height: 1.67; letter-spacing: 0.4px;
+          + li { margin-top: rem(15px);}
+        }
+        &.list-aside-icon {
+          .icon { width: 30px; height: 30px; @include bgc(center, left, transparent); position: absolute; background-size: contain; left: 0; top:50%; transform: translateY(-50%);}
+          li { padding-left: rem(45px); position: relative;}
+        }
+      }
+
+      .list-aside-contact {
+        @extend .clearfix;
+        li {
+          padding: rem(20px) rem(10px); @extend .clearfix;
+
+          &:first-child { padding-top: 0;}
+          &:last-child { padding-bottom: 0;}
+          + li { border-top: 1px solid $grey-80;}
+        }
+        .contact-info-img {
+          width: 35px; float: left; text-align: center;
+          img { display: inline-block;}
+        }
+        .contact-info { float: left; width: calc(100% - 35px); padding-left: rem(20px); padding-top: rem(2px);
+          .contact-info-title {
+            font-size: rem(11px); font-weight: 600; letter-spacing: 0.4px;
+          }
+          .contact-info-text { font-size: rem(12px); font-weight: 200; letter-spacing: 0.5px; color: $text-color;
+            a { color: $text-color;
+              &:focus, &:hover { text-decoration: none; color: $secondary;}
+            }
+          }
+        }
+      }
+
+      &.aside-form { padding-bottom: 5px; z-index: 10;
+        @include max(sm){ display: none;}
+      }
+    }
+  }
+}

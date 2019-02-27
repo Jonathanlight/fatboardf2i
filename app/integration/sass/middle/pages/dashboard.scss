@@ -1,0 +1,150 @@
+/* ---- Dashboard ---- */
+.dashboard-block {
+  border-radius: 6px; box-shadow: 0 0 30px 0 rgba(44, 44, 121, 0.1); padding: rem(40px) rem(50px); display: block;
+  @include max(xs){ padding: rem(20px);}
+
+  + .dashboard-block { margin-top: rem(40px);
+    @include max(xs){ margin-top: rem(20px);}
+  }
+
+  // Link
+  .link-dashboard {
+    font-size: rem(11px); text-transform: uppercase; color: $secondary; font-weight: 600; position: relative;
+    &:hover, &:focus {
+      text-decoration: none; color: $primary; transition: 0.3s;
+      &:after { background: $primary;}
+    }
+    &:after {
+      content: ''; width: 95%; left: 50%; top: calc(100% + 2px);  transform: translateX(-50%); position: absolute;  display: block; height: 2px; background: $secondary;
+    }
+  }
+}
+
+// Welcome
+.dashboard-welcome-block {
+  position: relative;
+  .dashboard-welcome-title {
+    font-size: rem(22px); font-weight: 300;  margin-bottom: 0;
+    @include max(xs){font-size: rem(16px);}
+
+    strong {display: block; font-weight: 800; }
+
+    &:after {
+      content: ''; display: block; width: 20px; height: 3px; background: $secondary; margin: rem(20px) 0;
+      @include max(md){ margin-bottom: 0;}
+      @include max(xs){ margin-top: rem(10px);}
+    }
+  }
+
+  .list-info-default { margin-bottom: 0;
+    @include max(md){ display: none;}
+  }
+
+  .link-dashboard {
+    position: absolute; bottom: 105px; right: 50px;
+    @include max(md){ display: none;}
+  }
+}
+
+// Coordonnées du centre
+.dashboard-contact-info-block {
+  .dashboard-title-block {
+    @extend .clearfix; margin-bottom: rem(20px);
+    @include max(xs){ margin-bottom: rem(15px);}
+  }
+  .dashboard-title {
+    font-size: rem(16px); letter-spacing: 0.6px; float: left; margin-bottom: 0;
+    @include max(xs){ font-size: rem(14px);}
+
+  }
+  .link-dashboard {
+    float: right;
+    @include max(md){ display: none;}
+  }
+
+  .list-course { margin-bottom: 0;
+    li { display: block;
+      + li { margin-top: rem(10px);}
+      .btn { border: 0; border-radius: 0; color: $text-color; text-align: left; background: $nude-40; display: block; width: 100%; padding: rem(15px) rem(20px); text-transform: initial; position: relative;
+        &:hover, &:focus { text-decoration: none;
+          &:after { background: transparent; color: $secondary;}
+        }
+        &:after {
+          @include zmdi; content: '\f301';  width: 50px; height: 50px; background: $secondary; border-radius: 50%; display: block; border: 2px solid $secondary; transition: 0.3s; color: $white; text-align: center;  pointer-events: none; font-size: rem(20px); line-height: 48px; right: 30px; position: absolute; top: 50%; transform: translateY(-50%);
+          @include max(xs){ display: none;}
+        }
+
+        .session-title {
+          font-size: rem(16px); font-weight: 300; line-height: 1.5; letter-spacing: 0.7px; margin-bottom: rem(5px);
+          @include max(xs){ font-size: rem(14px);}
+        }
+        .session-date {
+          font-size: rem(8px); font-weight: 700; letter-spacing: 0.4px;
+          &:after {
+            content: ''; display: block; width: 20px; height: 2px; background: $secondary; margin: rem(5px) 0 rem(15px);
+            @include max(xs){ margin: rem(15px) 0;}
+          }
+        }
+        .list-session-info {
+          font-weight: 300;
+
+          li { margin-bottom: rem(8px);
+            @include max(xs){ font-size: rem(11px); margin-bottom: rem(5px);}
+
+            &:not(:last-child) { margin-right: 0;}
+            float: left; width: calc(100% - 120px);
+            @include max(xs){ float: none; width: 100%;}
+
+            &:nth-child(odd){
+              width: 120px;
+              @include max(xs){ float: none; width: 100%;}
+            }
+            + li { margin-top: 0;}
+          }
+          strong { font-weight: 700;}
+        }
+      }
+    }
+  }
+}
+
+// Contact
+.dashboard-contact-block {
+  display: flex; align-items: center; min-height: 170px; padding: rem(40px) rem(70px);
+  @include max(md){ display: none;}
+
+  .dashboard-content { line-height: 1.75; padding-left: rem(50px); }
+}
+
+// Inscription
+.dashboard-inscription-block {
+  display: flex; align-items: center; border-top: 6px solid $secondary; padding: rem(40px) rem(70px); position: relative; color: $text-color;
+  &:hover, &:focus { text-decoration: none; color: $text-color;
+    &:after { background: transparent; color: $secondary;}
+  }
+  &:after { @include zmdi; content: '\f301';  width: 50px; height: 50px; background: $secondary; border-radius: 50%; display: block; border: 2px solid $secondary; transition: 0.3s; color: $white; text-align: center;  pointer-events: none; font-size: rem(20px); line-height: 48px; right: 50px; position: absolute; top: 50%; transform: translateY(-50%);}
+  @include max(md){ display: none;}
+
+  .dashboard-number { font-size: rem(78px); font-weight: 700; color: $grey-80; padding-left: rem(50px); line-height: 1;}
+
+  .dashboard-text {
+    font-size: rem(16px); padding-left: rem(20px); width: 125px;
+  }
+}
+
+// Tarif
+.dashboard-tarif-block {
+  display: flex; align-items: center; padding: rem(40px) rem(70px);
+  @include max(md){ display: none;}
+
+  .dashboard-tarif-content { padding-left: rem(52px);}
+  .dashboard-tarif-text {  line-height: 1.75; width: 240px; margin-bottom: rem(20px);}
+  .list-tarif  { margin-bottom: 0; max-width: 300px; width: 100%;
+    li {
+      &:before { content: ''; width: 6px; height: 6px; background-color: $primary; display: block; border-radius: 50%; position: absolute; left: 0; top: 11px;}
+      font-size: rem(14px); font-weight: 800; line-height: 2; position: relative; padding-left: rem(20px);
+      + li { margin-top: rem(10px);}
+    }
+  }
+
+}

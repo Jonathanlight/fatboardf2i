@@ -1,0 +1,130 @@
+/* ---- Button ---- */
+.btn {
+  // background-color: $grey;
+  border: 2px solid $text-color;
+  border-radius: 4px;
+  font-size: rem(11px);
+  min-height: $btn-height;
+  text-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  text-decoration: none;
+  white-space: normal;
+  padding: rem(21px) rem(25px);
+  background-image: none;
+  white-space: normal;
+  box-shadow: initial;
+  transition: 0.3s;
+  color: $white;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  font-weight: 600;
+  &:focus , &:active , &:active:focus { outline: none; box-shadow: none; }
+  &[disabled] {
+    pointer-events: none; opacity: 0.5;
+  }
+
+  .main-middle-wrap & {
+    min-height: 50px;
+    padding: rem(14px) rem(25px);
+  }
+}
+
+.btn-full { width:100%; }
+
+.btn-icon {
+  position: relative; padding-left: rem(45px);
+  &:before {
+    @include zmdi; content: "\f1f1"; font-size: rem(18px); display: inline-block; position: absolute; top: 50%; left: 15px; transform: translateY(-50%);
+  }
+}
+
+.btn-primary {
+  box-shadow: 0 0 20px 0 rgba($primary, 0.6); border-color: $primary;
+  &:focus, &:hover, &:active:focus { background-color: transparent; border-color: $primary; color: $primary; box-shadow: none;}
+}
+
+.btn-secondary  {
+  box-shadow: 0 0 20px 0 rgba($secondary, 0.6); border-color: $secondary;
+  &:focus, &:hover, &:active:focus { background-color: transparent; border-color: $secondary; color: $secondary; box-shadow: none;}
+}
+
+.btn-tertiary {
+  color: $white; background-color: $tertiary;
+  &:focus, &:hover, &:active:focus { background-color: transparentize($tertiary, 0.2); border-color: transparentize($tertiary, 0.2);}
+}
+
+.btn-white {
+  box-shadow: 0 0 30px 0 rgba(28, 28, 100, 0.15); background: $white; color: $text-color; border-color: $white;
+  &:focus, &:hover, &:active:focus { background-color: $white; border-color: $white; box-shadow: 0 0 30px 0 rgba(28, 28, 100, 0.15);}
+  &.btn-next { pointer-events: none; width: 60px; height: 60px; padding: 0; line-height: 60px; border-radius: 50%; font-size: rem(20px); position: absolute; left: 50%; transform: translateX(-50%); z-index: 2; bottom: -30px;
+    @include max(xs){ width: 35px; min-height: 35px;  height: 35px; line-height: 35px; bottom: 20px; font-size: rem(14px);}
+  }
+}
+
+.btn-top {
+  width: 40px; padding: 0; line-height: 38px; min-height: 40px; height: 40px; border-radius: 50%; position: fixed; z-index: 10; right: 55px; bottom: 100px; display: none;
+  @include max(md){ display: none !important;}
+}
+
+.btn-overflow {
+  background: transparent; width: calc(100% - 220px); position: fixed; display: none; z-index: -1; left: 0; top: 0; bottom: 0;
+  &.active { display: block; z-index: 10;}
+}
+
+.btn-sm {
+  height: 50px; min-height: 50px; padding: rem(16px) rem(20px);
+}
+
+.btn-next-order {
+  float: right; min-width: 220px; height: 50px; min-height: 50px; padding: rem(16px) rem(20px);
+  @include max(xs){ margin-top: rem(20px); float: none; width: 100%; }
+}
+
+.btn-inscription {
+  border-radius: 0; position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 2; border: 0; background: $light-purple; box-shadow: none; width: 100%; color: $text-color; font-weight: 500; text-align: left; padding: rem(20px) rem(10px) rem(20px) rem(30px); min-width: 100px;
+  &:hover { background-color: $primary; color: $white;}
+  &:after {
+    content: ''; width: 20px; height: 20px; display: block; background-image: url('../../img/icons/middle/icon-edit.svg'); position:  absolute; right: 10px; top: 50%; transform: translateY(-50%); background-repeat: no-repeat;
+  }
+}
+
+.btn-switch {
+  input {
+    display: inline; position: absolute; left: -9999px;
+    &:checked {
+      + label {
+        background: $primary;
+        &:before {
+          content: 'ON'; text-indent: -23px; font-family: Montserrat,Arial,sans-serif; top: 5px;
+        }
+        &:after { left: 26px;  }
+      }
+    }
+  }
+
+  label {
+    position: relative;
+    height: 26px; width: 52px; cursor: pointer; background: $light-purple-10; border-radius: 2px; font-weight: 400; text-transform: uppercase; color: $text-color; -webkit-transition: background 0.3s, text-indent 0.3s; -moz-transition: background 0.3s, text-indent 0.3s; -o-transition: background 0.3s, text-indent 0.3s; transition: background 0.3s, text-indent 0.3s; text-indent: 45px; margin-bottom: 0;
+    &:hover { background: $primary;}
+
+     &:before {
+       content: 'Off'; display: block; position: absolute; top: 6px; left: 0px; width: 100%; font-size: rem(10px); text-indent: 25px; z-index: 1; color: $white;
+     }
+     @extend .icon-pause;
+     &:after {
+       content: ''; width: 25px; height: 24px; border-radius: 2px; background: $white; position: absolute; z-index: 2; top: 1px; left: 1px; display: block; -webkit-transition: left 0.3s; -moz-transition: left 0.3s; -o-transition: left 0.3s; transition: left 0.3s;
+     }
+  }
+}
+
+.btn-link-default {
+  border: 0; padding: 0; border-radius: 0; color: $secondary; min-height: auto; text-transform: initial; text-decoration: underline; font-size: rem(14px); letter-spacing: initial;
+  &:hover, &:focus { color: $primary; text-decoration: underline;}
+}
+
+.btn-back { margin-right: rem(10px);
+  i { margin-right: rem(6px); font-size: rem(16px); line-height: 1; display: inline-block; vertical-align: middle; margin-top: rem(-2px);}
+}
