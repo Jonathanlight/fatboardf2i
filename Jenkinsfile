@@ -2,14 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                echo 'Building..'
+                deleteDire();
+		checkout scm;
             }
         }
-        stage('git') {
+        stage('Build and running container') {
             steps {
-                git 'https://github.com/jonathankablan/fatboardf2i.git'
+                imageApache	= docker.build('server-apache-dev', '--no-cache -f docker/build/apache/Dockerfile');
+		containerApache = imageApache.run('-p 8080:80');
             }
         }
         stage('Deploy') {
