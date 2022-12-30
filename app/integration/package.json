@@ -39,7 +39,7 @@
     "popper.js": "^1.14.4",
     "rellax": "^1.7.0",
     "uglifyjs-webpack-plugin": "^2.0.1",
-    "webpack": "^4.19.1"
+    "webpack": "^5.75.0"
   },
   "devDependencies": {
     "gulp-fontgen": "^0.2.5"
